@@ -1,0 +1,1815 @@
+@postexec /usr/sbin/chown -R %%USER%%:%%GROUP%% %%OPTDIR%%
+@postexec /usr/bin/su %%USER%% -c %%OPTDIR%%/setup/setup_venv.sh
+@postexec /usr/bin/su %%USER%% -c %%OPTDIR%%/setup/setup_nltk.sh
+@postexec /usr/bin/su %%USER%% -c %%OPTDIR%%/setup/setup_database.sh
+@preunexec /bin/rm -rf %%OPTDIR%%/venv %%OPTDIR%%/nltk
+@preunexec /usr/bin/find %%OPTDIR%%/src -type f -name "*.pyc" -delete
+@preunexec /usr/bin/find %%OPTDIR%%/src -type d -name "__pycache__" -delete
+@sample %%OPTDIR%%/paperless.conf.sample
+@owner %%USER%%
+@group %%GROUP%%
+%%OPTDIR%%/bin/paperless_consumer
+%%OPTDIR%%/bin/paperless_scheduler
+%%OPTDIR%%/bin/paperless_taskqueue
+%%OPTDIR%%/bin/paperless_webserver
+%%OPTDIR%%/requirements.txt
+%%OPTDIR%%/setup/setup_database.sh
+%%OPTDIR%%/setup/setup_nltk.sh
+%%OPTDIR%%/setup/setup_user.sh
+%%OPTDIR%%/setup/setup_venv.sh
+%%OPTDIR%%/src/documents/__init__.py
+%%OPTDIR%%/src/documents/admin.py
+%%OPTDIR%%/src/documents/apps.py
+%%OPTDIR%%/src/documents/barcodes.py
+%%OPTDIR%%/src/documents/bulk_download.py
+%%OPTDIR%%/src/documents/bulk_edit.py
+%%OPTDIR%%/src/documents/checks.py
+%%OPTDIR%%/src/documents/classifier.py
+%%OPTDIR%%/src/documents/consumer.py
+%%OPTDIR%%/src/documents/converters.py
+%%OPTDIR%%/src/documents/data_models.py
+%%OPTDIR%%/src/documents/double_sided.py
+%%OPTDIR%%/src/documents/file_handling.py
+%%OPTDIR%%/src/documents/filters.py
+%%OPTDIR%%/src/documents/index.py
+%%OPTDIR%%/src/documents/loggers.py
+%%OPTDIR%%/src/documents/management/__init__.py
+%%OPTDIR%%/src/documents/management/commands/__init__.py
+%%OPTDIR%%/src/documents/management/commands/decrypt_documents.py
+%%OPTDIR%%/src/documents/management/commands/document_archiver.py
+%%OPTDIR%%/src/documents/management/commands/document_consumer.py
+%%OPTDIR%%/src/documents/management/commands/document_create_classifier.py
+%%OPTDIR%%/src/documents/management/commands/document_exporter.py
+%%OPTDIR%%/src/documents/management/commands/document_importer.py
+%%OPTDIR%%/src/documents/management/commands/document_index.py
+%%OPTDIR%%/src/documents/management/commands/document_renamer.py
+%%OPTDIR%%/src/documents/management/commands/document_retagger.py
+%%OPTDIR%%/src/documents/management/commands/document_sanity_checker.py
+%%OPTDIR%%/src/documents/management/commands/document_thumbnails.py
+%%OPTDIR%%/src/documents/management/commands/loaddata_stdin.py
+%%OPTDIR%%/src/documents/management/commands/manage_superuser.py
+%%OPTDIR%%/src/documents/matching.py
+%%OPTDIR%%/src/documents/migrations/0001_initial.py
+%%OPTDIR%%/src/documents/migrations/0002_auto_20151226_1316.py
+%%OPTDIR%%/src/documents/migrations/0003_sender.py
+%%OPTDIR%%/src/documents/migrations/0004_auto_20160114_1844.py
+%%OPTDIR%%/src/documents/migrations/0005_auto_20160123_0313.py
+%%OPTDIR%%/src/documents/migrations/0006_auto_20160123_0430.py
+%%OPTDIR%%/src/documents/migrations/0007_auto_20160126_2114.py
+%%OPTDIR%%/src/documents/migrations/0008_document_file_type.py
+%%OPTDIR%%/src/documents/migrations/0009_auto_20160214_0040.py
+%%OPTDIR%%/src/documents/migrations/0010_log.py
+%%OPTDIR%%/src/documents/migrations/0011_auto_20160303_1929.py
+%%OPTDIR%%/src/documents/migrations/0012_auto_20160305_0040.py
+%%OPTDIR%%/src/documents/migrations/0013_auto_20160325_2111.py
+%%OPTDIR%%/src/documents/migrations/0014_document_checksum.py
+%%OPTDIR%%/src/documents/migrations/0015_add_insensitive_to_match.py
+%%OPTDIR%%/src/documents/migrations/0016_auto_20170325_1558.py
+%%OPTDIR%%/src/documents/migrations/0017_auto_20170512_0507.py
+%%OPTDIR%%/src/documents/migrations/0018_auto_20170715_1712.py
+%%OPTDIR%%/src/documents/migrations/0019_add_consumer_user.py
+%%OPTDIR%%/src/documents/migrations/0020_document_added.py
+%%OPTDIR%%/src/documents/migrations/0021_document_storage_type.py
+%%OPTDIR%%/src/documents/migrations/0022_auto_20181007_1420.py
+%%OPTDIR%%/src/documents/migrations/0023_document_current_filename.py
+%%OPTDIR%%/src/documents/migrations/1000_update_paperless_all.py
+%%OPTDIR%%/src/documents/migrations/1001_auto_20201109_1636.py
+%%OPTDIR%%/src/documents/migrations/1002_auto_20201111_1105.py
+%%OPTDIR%%/src/documents/migrations/1003_mime_types.py
+%%OPTDIR%%/src/documents/migrations/1004_sanity_check_schedule.py
+%%OPTDIR%%/src/documents/migrations/1005_checksums.py
+%%OPTDIR%%/src/documents/migrations/1006_auto_20201208_2209.py
+%%OPTDIR%%/src/documents/migrations/1007_savedview_savedviewfilterrule.py
+%%OPTDIR%%/src/documents/migrations/1008_auto_20201216_1736.py
+%%OPTDIR%%/src/documents/migrations/1009_auto_20201216_2005.py
+%%OPTDIR%%/src/documents/migrations/1010_auto_20210101_2159.py
+%%OPTDIR%%/src/documents/migrations/1011_auto_20210101_2340.py
+%%OPTDIR%%/src/documents/migrations/1012_fix_archive_files.py
+%%OPTDIR%%/src/documents/migrations/1013_migrate_tag_colour.py
+%%OPTDIR%%/src/documents/migrations/1014_auto_20210228_1614.py
+%%OPTDIR%%/src/documents/migrations/1015_remove_null_characters.py
+%%OPTDIR%%/src/documents/migrations/1016_auto_20210317_1351.py
+%%OPTDIR%%/src/documents/migrations/1017_alter_savedviewfilterrule_rule_type.py
+%%OPTDIR%%/src/documents/migrations/1018_alter_savedviewfilterrule_value.py
+%%OPTDIR%%/src/documents/migrations/1019_storagepath_document_storage_path.py
+%%OPTDIR%%/src/documents/migrations/1019_uisettings.py
+%%OPTDIR%%/src/documents/migrations/1020_merge_20220518_1839.py
+%%OPTDIR%%/src/documents/migrations/1021_webp_thumbnail_conversion.py
+%%OPTDIR%%/src/documents/migrations/1022_paperlesstask.py
+%%OPTDIR%%/src/documents/migrations/1023_add_comments.py
+%%OPTDIR%%/src/documents/migrations/1024_document_original_filename.py
+%%OPTDIR%%/src/documents/migrations/1025_alter_savedviewfilterrule_rule_type.py
+%%OPTDIR%%/src/documents/migrations/1026_transition_to_celery.py
+%%OPTDIR%%/src/documents/migrations/1027_remove_paperlesstask_attempted_task_and_more.py
+%%OPTDIR%%/src/documents/migrations/1028_remove_paperlesstask_task_args_and_more.py
+%%OPTDIR%%/src/documents/migrations/1029_alter_document_archive_serial_number.py
+%%OPTDIR%%/src/documents/migrations/1030_alter_paperlesstask_task_file_name.py
+%%OPTDIR%%/src/documents/migrations/1031_remove_savedview_user_correspondent_owner_and_more.py
+%%OPTDIR%%/src/documents/migrations/1032_alter_correspondent_matching_algorithm_and_more.py
+%%OPTDIR%%/src/documents/migrations/1033_alter_documenttype_options_alter_tag_options_and_more.py
+%%OPTDIR%%/src/documents/migrations/1034_alter_savedviewfilterrule_rule_type.py
+%%OPTDIR%%/src/documents/migrations/1035_rename_comment_note.py
+%%OPTDIR%%/src/documents/migrations/1036_alter_savedviewfilterrule_rule_type.py
+%%OPTDIR%%/src/documents/migrations/1037_webp_encrypted_thumbnail_conversion.py
+%%OPTDIR%%/src/documents/migrations/__init__.py
+%%OPTDIR%%/src/documents/models.py
+%%OPTDIR%%/src/documents/parsers.py
+%%OPTDIR%%/src/documents/permissions.py
+%%OPTDIR%%/src/documents/resources/document.png
+%%OPTDIR%%/src/documents/sanity_checker.py
+%%OPTDIR%%/src/documents/serialisers.py
+%%OPTDIR%%/src/documents/settings.py
+%%OPTDIR%%/src/documents/signals/__init__.py
+%%OPTDIR%%/src/documents/signals/handlers.py
+%%OPTDIR%%/src/documents/static/bootstrap.min.css
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/index.html
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/main.js
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/ar-AR/styles.css
+%%OPTDIR%%/src/documents/static/frontend/be-BY/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/be-BY/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/be-BY/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/be-BY/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/be-BY/index.html
+%%OPTDIR%%/src/documents/static/frontend/be-BY/main.js
+%%OPTDIR%%/src/documents/static/frontend/be-BY/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/be-BY/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/be-BY/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/be-BY/styles.css
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/index.html
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/main.js
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/ca-ES/styles.css
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/index.html
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/main.js
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/cs-CZ/styles.css
+%%OPTDIR%%/src/documents/static/frontend/da-DK/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/da-DK/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/da-DK/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/da-DK/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/da-DK/index.html
+%%OPTDIR%%/src/documents/static/frontend/da-DK/main.js
+%%OPTDIR%%/src/documents/static/frontend/da-DK/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/da-DK/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/da-DK/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/da-DK/styles.css
+%%OPTDIR%%/src/documents/static/frontend/de-DE/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/de-DE/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/de-DE/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/de-DE/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/de-DE/index.html
+%%OPTDIR%%/src/documents/static/frontend/de-DE/main.js
+%%OPTDIR%%/src/documents/static/frontend/de-DE/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/de-DE/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/de-DE/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/de-DE/styles.css
+%%OPTDIR%%/src/documents/static/frontend/en-GB/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/en-GB/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/en-GB/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/en-GB/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/en-GB/index.html
+%%OPTDIR%%/src/documents/static/frontend/en-GB/main.js
+%%OPTDIR%%/src/documents/static/frontend/en-GB/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/en-GB/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/en-GB/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/en-GB/styles.css
+%%OPTDIR%%/src/documents/static/frontend/en-US/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/en-US/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/en-US/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/en-US/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/en-US/index.html
+%%OPTDIR%%/src/documents/static/frontend/en-US/main.js
+%%OPTDIR%%/src/documents/static/frontend/en-US/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/en-US/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/en-US/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/en-US/styles.css
+%%OPTDIR%%/src/documents/static/frontend/es-ES/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/es-ES/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/es-ES/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/es-ES/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/es-ES/index.html
+%%OPTDIR%%/src/documents/static/frontend/es-ES/main.js
+%%OPTDIR%%/src/documents/static/frontend/es-ES/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/es-ES/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/es-ES/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/es-ES/styles.css
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/index.html
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/main.js
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/fi-FI/styles.css
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/index.html
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/main.js
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/fr-FR/styles.css
+%%OPTDIR%%/src/documents/static/frontend/it-IT/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/it-IT/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/it-IT/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/it-IT/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/it-IT/index.html
+%%OPTDIR%%/src/documents/static/frontend/it-IT/main.js
+%%OPTDIR%%/src/documents/static/frontend/it-IT/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/it-IT/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/it-IT/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/it-IT/styles.css
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/index.html
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/main.js
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/lb-LU/styles.css
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/index.html
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/main.js
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/nl-NL/styles.css
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/index.html
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/main.js
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/pl-PL/styles.css
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/index.html
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/main.js
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/pt-BR/styles.css
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/index.html
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/main.js
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/pt-PT/styles.css
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/index.html
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/main.js
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/ro-RO/styles.css
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/index.html
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/main.js
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/ru-RU/styles.css
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/index.html
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/main.js
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/sk-SK/styles.css
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/index.html
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/main.js
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/sl-SI/styles.css
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/index.html
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/main.js
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/sr-CS/styles.css
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/index.html
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/main.js
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/sv-SE/styles.css
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/index.html
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/main.js
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/tr-TR/styles.css
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/index.html
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/main.js
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/uk-UA/styles.css
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/3rdpartylicenses.txt
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/apple-touch-icon.png
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/bootstrap-icons.svg
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/document.png
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/js/pdf.worker.min.js
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/logo-dark-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/logo-dark.svg
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/logo-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/logo-white-notext.svg
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/logo.svg
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/favicon.ico
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/index.html
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/main.js
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/manifest.webmanifest
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/polyfills.js
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/runtime.js
+%%OPTDIR%%/src/documents/static/frontend/zh-CN/styles.css
+%%OPTDIR%%/src/documents/static/signin.css
+%%OPTDIR%%/src/documents/tasks.py
+%%OPTDIR%%/src/documents/templates/index.html
+%%OPTDIR%%/src/documents/templates/registration/logged_out.html
+%%OPTDIR%%/src/documents/templates/registration/login.html
+%%OPTDIR%%/src/documents/tests/__init__.py
+%%OPTDIR%%/src/documents/tests/data/v1.0.2.model.pickle
+%%OPTDIR%%/src/documents/tests/examples/no-text.png
+%%OPTDIR%%/src/documents/tests/factories.py
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-128-asn-too-large.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-128-custom.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-39-asn-123.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-39-asn-custom-prefix.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-39-asn-invalid.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-39-custom.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-fax-image.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-qr-asn-000123-upscale-dpi.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/barcode-qr-custom.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/many-qr-codes.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-double.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-middle-alpha.tiff
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-middle-distorted.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-middle-fuzzy.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-middle-reverse.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-middle-unreadable.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-middle.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-middle.tiff
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t-qr.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/patch-code-t.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/several-patcht-codes.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/split-by-asn-1.pdf
+%%OPTDIR%%/src/documents/tests/samples/barcodes/split-by-asn-2.pdf
+%%OPTDIR%%/src/documents/tests/samples/documents/archive/0000001.pdf
+%%OPTDIR%%/src/documents/tests/samples/documents/originals/0000001.pdf
+%%OPTDIR%%/src/documents/tests/samples/documents/originals/0000002.pdf
+%%OPTDIR%%/src/documents/tests/samples/documents/originals/0000003.pdf
+%%OPTDIR%%/src/documents/tests/samples/documents/originals/0000004.pdf.gpg
+%%OPTDIR%%/src/documents/tests/samples/documents/originals/0000005.pdf
+%%OPTDIR%%/src/documents/tests/samples/documents/originals/0000006.pdf
+%%OPTDIR%%/src/documents/tests/samples/documents/thumbnails/0000001.webp
+%%OPTDIR%%/src/documents/tests/samples/documents/thumbnails/0000002.webp
+%%OPTDIR%%/src/documents/tests/samples/documents/thumbnails/0000003.webp
+%%OPTDIR%%/src/documents/tests/samples/documents/thumbnails/0000004.webp.gpg
+%%OPTDIR%%/src/documents/tests/samples/double-sided-even.pdf
+%%OPTDIR%%/src/documents/tests/samples/double-sided-odd.pdf
+%%OPTDIR%%/src/documents/tests/samples/password-is-test.pdf
+%%OPTDIR%%/src/documents/tests/samples/simple-noalpha.png
+%%OPTDIR%%/src/documents/tests/samples/simple.jpg
+%%OPTDIR%%/src/documents/tests/samples/simple.pdf
+%%OPTDIR%%/src/documents/tests/samples/simple.png
+%%OPTDIR%%/src/documents/tests/samples/simple.tiff
+%%OPTDIR%%/src/documents/tests/samples/simple.txt
+%%OPTDIR%%/src/documents/tests/samples/simple.zip
+%%OPTDIR%%/src/documents/tests/samples/test_with_bom.pdf
+%%OPTDIR%%/src/documents/tests/test_admin.py
+%%OPTDIR%%/src/documents/tests/test_api.py
+%%OPTDIR%%/src/documents/tests/test_barcodes.py
+%%OPTDIR%%/src/documents/tests/test_checks.py
+%%OPTDIR%%/src/documents/tests/test_classifier.py
+%%OPTDIR%%/src/documents/tests/test_consumer.py
+%%OPTDIR%%/src/documents/tests/test_date_parsing.py
+%%OPTDIR%%/src/documents/tests/test_delayedquery.py
+%%OPTDIR%%/src/documents/tests/test_document_model.py
+%%OPTDIR%%/src/documents/tests/test_double_sided.py
+%%OPTDIR%%/src/documents/tests/test_file_handling.py
+%%OPTDIR%%/src/documents/tests/test_importer.py
+%%OPTDIR%%/src/documents/tests/test_index.py
+%%OPTDIR%%/src/documents/tests/test_management.py
+%%OPTDIR%%/src/documents/tests/test_management_consumer.py
+%%OPTDIR%%/src/documents/tests/test_management_exporter.py
+%%OPTDIR%%/src/documents/tests/test_management_retagger.py
+%%OPTDIR%%/src/documents/tests/test_management_superuser.py
+%%OPTDIR%%/src/documents/tests/test_management_thumbnails.py
+%%OPTDIR%%/src/documents/tests/test_matchables.py
+%%OPTDIR%%/src/documents/tests/test_migration_archive_files.py
+%%OPTDIR%%/src/documents/tests/test_migration_encrypted_webp_conversion.py
+%%OPTDIR%%/src/documents/tests/test_migration_mime_type.py
+%%OPTDIR%%/src/documents/tests/test_migration_remove_null_characters.py
+%%OPTDIR%%/src/documents/tests/test_migration_tag_colors.py
+%%OPTDIR%%/src/documents/tests/test_migration_webp_conversion.py
+%%OPTDIR%%/src/documents/tests/test_models.py
+%%OPTDIR%%/src/documents/tests/test_parsers.py
+%%OPTDIR%%/src/documents/tests/test_sanity_check.py
+%%OPTDIR%%/src/documents/tests/test_task_signals.py
+%%OPTDIR%%/src/documents/tests/test_tasks.py
+%%OPTDIR%%/src/documents/tests/test_views.py
+%%OPTDIR%%/src/documents/tests/utils.py
+%%OPTDIR%%/src/documents/utils.py
+%%OPTDIR%%/src/documents/views.py
+%%OPTDIR%%/src/locale/af_ZA/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/af_ZA/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/ar_AR/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/ar_AR/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/be_BY/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/be_BY/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/ca_ES/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/ca_ES/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/cs_CZ/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/cs_CZ/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/da_DK/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/da_DK/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/de_DE/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/de_DE/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/el_GR/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/el_GR/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/en_GB/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/en_GB/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/en_US/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/en_US/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/es_ES/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/es_ES/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/fi_FI/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/fi_FI/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/fr_FR/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/fr_FR/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/he_IL/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/he_IL/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/hr_HR/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/hr_HR/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/hu_HU/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/hu_HU/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/id_ID/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/id_ID/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/it_IT/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/it_IT/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/ja_JP/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/ja_JP/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/km_KH/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/km_KH/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/ko_KR/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/ko_KR/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/la_LA/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/la_LA/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/lb_LU/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/lb_LU/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/nb_NO/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/nb_NO/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/nl_NL/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/nl_NL/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/no_NO/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/no_NO/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/pl_PL/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/pl_PL/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/pt_BR/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/pt_BR/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/pt_PT/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/pt_PT/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/ro_RO/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/ro_RO/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/ru_RU/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/ru_RU/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/sk_SK/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/sk_SK/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/sl_SI/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/sl_SI/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/sr_CS/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/sr_CS/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/sv_SE/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/sv_SE/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/th_TH/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/th_TH/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/tr_TR/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/tr_TR/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/uk_UA/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/uk_UA/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/xh_ZA/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/xh_ZA/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/zh_CN/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/zh_CN/LC_MESSAGES/django.po
+%%OPTDIR%%/src/locale/zh_TW/LC_MESSAGES/django.mo
+%%OPTDIR%%/src/locale/zh_TW/LC_MESSAGES/django.po
+%%OPTDIR%%/src/manage.py
+%%OPTDIR%%/src/paperless/__init__.py
+%%OPTDIR%%/src/paperless/apps.py
+%%OPTDIR%%/src/paperless/asgi.py
+%%OPTDIR%%/src/paperless/auth.py
+%%OPTDIR%%/src/paperless/celery.py
+%%OPTDIR%%/src/paperless/checks.py
+%%OPTDIR%%/src/paperless/consumers.py
+%%OPTDIR%%/src/paperless/db.py
+%%OPTDIR%%/src/paperless/filters.py
+%%OPTDIR%%/src/paperless/middleware.py
+%%OPTDIR%%/src/paperless/serialisers.py
+%%OPTDIR%%/src/paperless/settings.py
+%%OPTDIR%%/src/paperless/signals.py
+%%OPTDIR%%/src/paperless/static/paperless/img/favicon.ico
+%%OPTDIR%%/src/paperless/static/paperless/img/logo-dark.png
+%%OPTDIR%%/src/paperless/static/paperless/img/logo-light.png
+%%OPTDIR%%/src/paperless/tests/__init__.py
+%%OPTDIR%%/src/paperless/tests/test_checks.py
+%%OPTDIR%%/src/paperless/tests/test_settings.py
+%%OPTDIR%%/src/paperless/tests/test_signals.py
+%%OPTDIR%%/src/paperless/tests/test_websockets.py
+%%OPTDIR%%/src/paperless/urls.py
+%%OPTDIR%%/src/paperless/version.py
+%%OPTDIR%%/src/paperless/views.py
+%%OPTDIR%%/src/paperless/workers.py
+%%OPTDIR%%/src/paperless/wsgi.py
+%%OPTDIR%%/src/paperless_mail/__init__.py
+%%OPTDIR%%/src/paperless_mail/admin.py
+%%OPTDIR%%/src/paperless_mail/apps.py
+%%OPTDIR%%/src/paperless_mail/mail.py
+%%OPTDIR%%/src/paperless_mail/management/__init__.py
+%%OPTDIR%%/src/paperless_mail/management/commands/__init__.py
+%%OPTDIR%%/src/paperless_mail/management/commands/mail_fetcher.py
+%%OPTDIR%%/src/paperless_mail/migrations/0001_initial.py
+%%OPTDIR%%/src/paperless_mail/migrations/0002_auto_20201117_1334.py
+%%OPTDIR%%/src/paperless_mail/migrations/0003_auto_20201118_1940.py
+%%OPTDIR%%/src/paperless_mail/migrations/0004_mailrule_order.py
+%%OPTDIR%%/src/paperless_mail/migrations/0005_help_texts.py
+%%OPTDIR%%/src/paperless_mail/migrations/0006_auto_20210101_2340.py
+%%OPTDIR%%/src/paperless_mail/migrations/0007_auto_20210106_0138.py
+%%OPTDIR%%/src/paperless_mail/migrations/0008_auto_20210516_0940.py
+%%OPTDIR%%/src/paperless_mail/migrations/0009_alter_mailrule_action_alter_mailrule_folder.py
+%%OPTDIR%%/src/paperless_mail/migrations/0009_mailrule_assign_tags.py
+%%OPTDIR%%/src/paperless_mail/migrations/0010_auto_20220311_1602.py
+%%OPTDIR%%/src/paperless_mail/migrations/0011_remove_mailrule_assign_tag.py
+%%OPTDIR%%/src/paperless_mail/migrations/0012_alter_mailrule_assign_tags.py
+%%OPTDIR%%/src/paperless_mail/migrations/0013_merge_20220412_1051.py
+%%OPTDIR%%/src/paperless_mail/migrations/0014_alter_mailrule_action.py
+%%OPTDIR%%/src/paperless_mail/migrations/0015_alter_mailrule_action.py
+%%OPTDIR%%/src/paperless_mail/migrations/0016_mailrule_consumption_scope.py
+%%OPTDIR%%/src/paperless_mail/migrations/0017_mailaccount_owner_mailrule_owner.py
+%%OPTDIR%%/src/paperless_mail/migrations/0018_processedmail.py
+%%OPTDIR%%/src/paperless_mail/migrations/0019_mailrule_filter_to.py
+%%OPTDIR%%/src/paperless_mail/migrations/0020_mailaccount_is_token.py
+%%OPTDIR%%/src/paperless_mail/migrations/0021_alter_mailaccount_password.py
+%%OPTDIR%%/src/paperless_mail/migrations/__init__.py
+%%OPTDIR%%/src/paperless_mail/models.py
+%%OPTDIR%%/src/paperless_mail/parsers.py
+%%OPTDIR%%/src/paperless_mail/serialisers.py
+%%OPTDIR%%/src/paperless_mail/signals.py
+%%OPTDIR%%/src/paperless_mail/tasks.py
+%%OPTDIR%%/src/paperless_mail/templates/email_msg_template.html
+%%OPTDIR%%/src/paperless_mail/templates/input.css
+%%OPTDIR%%/src/paperless_mail/templates/output.css
+%%OPTDIR%%/src/paperless_mail/templates/package-lock.json
+%%OPTDIR%%/src/paperless_mail/templates/package.json
+%%OPTDIR%%/src/paperless_mail/templates/tailwind.config.js
+%%OPTDIR%%/src/paperless_mail/tests/__init__.py
+%%OPTDIR%%/src/paperless_mail/tests/samples/broken.eml
+%%OPTDIR%%/src/paperless_mail/tests/samples/first.pdf
+%%OPTDIR%%/src/paperless_mail/tests/samples/html.eml
+%%OPTDIR%%/src/paperless_mail/tests/samples/html.eml.html
+%%OPTDIR%%/src/paperless_mail/tests/samples/html.eml.pdf
+%%OPTDIR%%/src/paperless_mail/tests/samples/html.eml.pdf.webp
+%%OPTDIR%%/src/paperless_mail/tests/samples/sample.html
+%%OPTDIR%%/src/paperless_mail/tests/samples/sample.html.pdf
+%%OPTDIR%%/src/paperless_mail/tests/samples/sample.html.pdf.webp
+%%OPTDIR%%/src/paperless_mail/tests/samples/sample.png
+%%OPTDIR%%/src/paperless_mail/tests/samples/second.pdf
+%%OPTDIR%%/src/paperless_mail/tests/samples/simple_text.eml
+%%OPTDIR%%/src/paperless_mail/tests/samples/simple_text.eml.pdf
+%%OPTDIR%%/src/paperless_mail/tests/samples/simple_text.eml.pdf.webp
+%%OPTDIR%%/src/paperless_mail/tests/test_api.py
+%%OPTDIR%%/src/paperless_mail/tests/test_live_mail.py
+%%OPTDIR%%/src/paperless_mail/tests/test_mail.py
+%%OPTDIR%%/src/paperless_mail/tests/test_parsers.py
+%%OPTDIR%%/src/paperless_mail/tests/test_parsers_live.py
+%%OPTDIR%%/src/paperless_mail/views.py
+%%OPTDIR%%/src/paperless_tesseract/__init__.py
+%%OPTDIR%%/src/paperless_tesseract/apps.py
+%%OPTDIR%%/src/paperless_tesseract/checks.py
+%%OPTDIR%%/src/paperless_tesseract/parsers.py
+%%OPTDIR%%/src/paperless_tesseract/signals.py
+%%OPTDIR%%/src/paperless_tesseract/tests/__init__.py
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/document.webp
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/encrypted.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/multi-page-digital.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/multi-page-images-alpha-rgb.tiff
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/multi-page-images-alpha.tiff
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/multi-page-images.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/multi-page-images.tiff
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/multi-page-mixed.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/no-text-alpha.png
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/rotated.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/rtl-test.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/signed.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple-alpha.png
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple-digital.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple-no-dpi.png
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple.bmp
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple.gif
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple.jpg
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple.png
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/simple.tif
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/single-page-mixed.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/samples/with-form.pdf
+%%OPTDIR%%/src/paperless_tesseract/tests/test_checks.py
+%%OPTDIR%%/src/paperless_tesseract/tests/test_parser.py
+%%OPTDIR%%/src/paperless_text/__init__.py
+%%OPTDIR%%/src/paperless_text/apps.py
+%%OPTDIR%%/src/paperless_text/parsers.py
+%%OPTDIR%%/src/paperless_text/signals.py
+%%OPTDIR%%/src/paperless_text/tests/__init__.py
+%%OPTDIR%%/src/paperless_text/tests/samples/decode_error.txt
+%%OPTDIR%%/src/paperless_text/tests/samples/test.txt
+%%OPTDIR%%/src/paperless_text/tests/test_parser.py
+%%OPTDIR%%/src/paperless_tika/__init__.py
+%%OPTDIR%%/src/paperless_tika/apps.py
+%%OPTDIR%%/src/paperless_tika/parsers.py
+%%OPTDIR%%/src/paperless_tika/signals.py
+%%OPTDIR%%/src/paperless_tika/tests/__init__.py
+%%OPTDIR%%/src/paperless_tika/tests/samples/sample.doc
+%%OPTDIR%%/src/paperless_tika/tests/samples/sample.docx
+%%OPTDIR%%/src/paperless_tika/tests/samples/sample.odt
+%%OPTDIR%%/src/paperless_tika/tests/test_live_tika.py
+%%OPTDIR%%/src/paperless_tika/tests/test_tika_parser.py
+%%OPTDIR%%/src/paperless_tika/tests/utils.py
+%%OPTDIR%%/src/setup.cfg
+%%OPTDIR%%/static/admin/css/autocomplete.css
+%%OPTDIR%%/static/admin/css/base.css
+%%OPTDIR%%/static/admin/css/changelists.css
+%%OPTDIR%%/static/admin/css/dark_mode.css
+%%OPTDIR%%/static/admin/css/dashboard.css
+%%OPTDIR%%/static/admin/css/fonts.css
+%%OPTDIR%%/static/admin/css/forms.css
+%%OPTDIR%%/static/admin/css/login.css
+%%OPTDIR%%/static/admin/css/nav_sidebar.css
+%%OPTDIR%%/static/admin/css/responsive.css
+%%OPTDIR%%/static/admin/css/responsive_rtl.css
+%%OPTDIR%%/static/admin/css/rtl.css
+%%OPTDIR%%/static/admin/css/vendor/select2/LICENSE-SELECT2.md
+%%OPTDIR%%/static/admin/css/vendor/select2/select2.css
+%%OPTDIR%%/static/admin/css/vendor/select2/select2.min.css
+%%OPTDIR%%/static/admin/css/widgets.css
+%%OPTDIR%%/static/admin/fonts/LICENSE.txt
+%%OPTDIR%%/static/admin/fonts/README.txt
+%%OPTDIR%%/static/admin/fonts/Roboto-Bold-webfont.woff
+%%OPTDIR%%/static/admin/fonts/Roboto-Light-webfont.woff
+%%OPTDIR%%/static/admin/fonts/Roboto-Regular-webfont.woff
+%%OPTDIR%%/static/admin/img/LICENSE
+%%OPTDIR%%/static/admin/img/README.txt
+%%OPTDIR%%/static/admin/img/calendar-icons.svg
+%%OPTDIR%%/static/admin/img/gis/move_vertex_off.svg
+%%OPTDIR%%/static/admin/img/gis/move_vertex_on.svg
+%%OPTDIR%%/static/admin/img/icon-addlink.svg
+%%OPTDIR%%/static/admin/img/icon-alert.svg
+%%OPTDIR%%/static/admin/img/icon-calendar.svg
+%%OPTDIR%%/static/admin/img/icon-changelink.svg
+%%OPTDIR%%/static/admin/img/icon-clock.svg
+%%OPTDIR%%/static/admin/img/icon-deletelink.svg
+%%OPTDIR%%/static/admin/img/icon-no.svg
+%%OPTDIR%%/static/admin/img/icon-unknown-alt.svg
+%%OPTDIR%%/static/admin/img/icon-unknown.svg
+%%OPTDIR%%/static/admin/img/icon-viewlink.svg
+%%OPTDIR%%/static/admin/img/icon-yes.svg
+%%OPTDIR%%/static/admin/img/inline-delete.svg
+%%OPTDIR%%/static/admin/img/search.svg
+%%OPTDIR%%/static/admin/img/selector-icons.svg
+%%OPTDIR%%/static/admin/img/sorting-icons.svg
+%%OPTDIR%%/static/admin/img/tooltag-add.svg
+%%OPTDIR%%/static/admin/img/tooltag-arrowright.svg
+%%OPTDIR%%/static/admin/js/SelectBox.js
+%%OPTDIR%%/static/admin/js/SelectFilter2.js
+%%OPTDIR%%/static/admin/js/actions.js
+%%OPTDIR%%/static/admin/js/admin/DateTimeShortcuts.js
+%%OPTDIR%%/static/admin/js/admin/RelatedObjectLookups.js
+%%OPTDIR%%/static/admin/js/autocomplete.js
+%%OPTDIR%%/static/admin/js/calendar.js
+%%OPTDIR%%/static/admin/js/cancel.js
+%%OPTDIR%%/static/admin/js/change_form.js
+%%OPTDIR%%/static/admin/js/collapse.js
+%%OPTDIR%%/static/admin/js/core.js
+%%OPTDIR%%/static/admin/js/filters.js
+%%OPTDIR%%/static/admin/js/inlines.js
+%%OPTDIR%%/static/admin/js/jquery.init.js
+%%OPTDIR%%/static/admin/js/nav_sidebar.js
+%%OPTDIR%%/static/admin/js/popup_response.js
+%%OPTDIR%%/static/admin/js/prepopulate.js
+%%OPTDIR%%/static/admin/js/prepopulate_init.js
+%%OPTDIR%%/static/admin/js/urlify.js
+%%OPTDIR%%/static/admin/js/vendor/jquery/LICENSE.txt
+%%OPTDIR%%/static/admin/js/vendor/jquery/jquery.js
+%%OPTDIR%%/static/admin/js/vendor/jquery/jquery.min.js
+%%OPTDIR%%/static/admin/js/vendor/select2/LICENSE.md
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/af.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ar.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/az.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/bg.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/bn.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/bs.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ca.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/cs.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/da.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/de.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/dsb.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/el.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/en.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/es.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/et.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/eu.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/fa.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/fi.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/fr.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/gl.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/he.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/hi.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/hr.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/hsb.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/hu.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/hy.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/id.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/is.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/it.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ja.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ka.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/km.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ko.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/lt.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/lv.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/mk.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ms.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/nb.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ne.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/nl.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/pl.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ps.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/pt-BR.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/pt.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ro.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/ru.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/sk.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/sl.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/sq.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/sr-Cyrl.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/sr.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/sv.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/th.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/tk.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/tr.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/uk.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/vi.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/zh-CN.js
+%%OPTDIR%%/static/admin/js/vendor/select2/i18n/zh-TW.js
+%%OPTDIR%%/static/admin/js/vendor/select2/select2.full.js
+%%OPTDIR%%/static/admin/js/vendor/select2/select2.full.min.js
+%%OPTDIR%%/static/admin/js/vendor/xregexp/LICENSE.txt
+%%OPTDIR%%/static/admin/js/vendor/xregexp/xregexp.js
+%%OPTDIR%%/static/admin/js/vendor/xregexp/xregexp.min.js
+%%OPTDIR%%/static/bootstrap.min.css
+%%OPTDIR%%/static/django_extensions/css/jquery.autocomplete.css
+%%OPTDIR%%/static/django_extensions/img/indicator.gif
+%%OPTDIR%%/static/django_extensions/js/jquery.ajaxQueue.js
+%%OPTDIR%%/static/django_extensions/js/jquery.autocomplete.js
+%%OPTDIR%%/static/django_extensions/js/jquery.bgiframe.js
+%%OPTDIR%%/static/frontend/ar-AR/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/ar-AR/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/ar-AR/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/ar-AR/assets/document.png
+%%OPTDIR%%/static/frontend/ar-AR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/ar-AR/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/ar-AR/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/ar-AR/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/ar-AR/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/ar-AR/assets/logo.svg
+%%OPTDIR%%/static/frontend/ar-AR/favicon.ico
+%%OPTDIR%%/static/frontend/ar-AR/index.html
+%%OPTDIR%%/static/frontend/ar-AR/main.js
+%%OPTDIR%%/static/frontend/ar-AR/manifest.webmanifest
+%%OPTDIR%%/static/frontend/ar-AR/polyfills.js
+%%OPTDIR%%/static/frontend/ar-AR/runtime.js
+%%OPTDIR%%/static/frontend/ar-AR/styles.css
+%%OPTDIR%%/static/frontend/be-BY/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/be-BY/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/be-BY/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/be-BY/assets/document.png
+%%OPTDIR%%/static/frontend/be-BY/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/be-BY/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/be-BY/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/be-BY/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/be-BY/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/be-BY/assets/logo.svg
+%%OPTDIR%%/static/frontend/be-BY/favicon.ico
+%%OPTDIR%%/static/frontend/be-BY/index.html
+%%OPTDIR%%/static/frontend/be-BY/main.js
+%%OPTDIR%%/static/frontend/be-BY/manifest.webmanifest
+%%OPTDIR%%/static/frontend/be-BY/polyfills.js
+%%OPTDIR%%/static/frontend/be-BY/runtime.js
+%%OPTDIR%%/static/frontend/be-BY/styles.css
+%%OPTDIR%%/static/frontend/ca-ES/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/ca-ES/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/ca-ES/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/ca-ES/assets/document.png
+%%OPTDIR%%/static/frontend/ca-ES/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/ca-ES/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/ca-ES/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/ca-ES/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/ca-ES/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/ca-ES/assets/logo.svg
+%%OPTDIR%%/static/frontend/ca-ES/favicon.ico
+%%OPTDIR%%/static/frontend/ca-ES/index.html
+%%OPTDIR%%/static/frontend/ca-ES/main.js
+%%OPTDIR%%/static/frontend/ca-ES/manifest.webmanifest
+%%OPTDIR%%/static/frontend/ca-ES/polyfills.js
+%%OPTDIR%%/static/frontend/ca-ES/runtime.js
+%%OPTDIR%%/static/frontend/ca-ES/styles.css
+%%OPTDIR%%/static/frontend/cs-CZ/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/cs-CZ/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/cs-CZ/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/cs-CZ/assets/document.png
+%%OPTDIR%%/static/frontend/cs-CZ/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/cs-CZ/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/cs-CZ/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/cs-CZ/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/cs-CZ/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/cs-CZ/assets/logo.svg
+%%OPTDIR%%/static/frontend/cs-CZ/favicon.ico
+%%OPTDIR%%/static/frontend/cs-CZ/index.html
+%%OPTDIR%%/static/frontend/cs-CZ/main.js
+%%OPTDIR%%/static/frontend/cs-CZ/manifest.webmanifest
+%%OPTDIR%%/static/frontend/cs-CZ/polyfills.js
+%%OPTDIR%%/static/frontend/cs-CZ/runtime.js
+%%OPTDIR%%/static/frontend/cs-CZ/styles.css
+%%OPTDIR%%/static/frontend/da-DK/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/da-DK/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/da-DK/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/da-DK/assets/document.png
+%%OPTDIR%%/static/frontend/da-DK/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/da-DK/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/da-DK/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/da-DK/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/da-DK/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/da-DK/assets/logo.svg
+%%OPTDIR%%/static/frontend/da-DK/favicon.ico
+%%OPTDIR%%/static/frontend/da-DK/index.html
+%%OPTDIR%%/static/frontend/da-DK/main.js
+%%OPTDIR%%/static/frontend/da-DK/manifest.webmanifest
+%%OPTDIR%%/static/frontend/da-DK/polyfills.js
+%%OPTDIR%%/static/frontend/da-DK/runtime.js
+%%OPTDIR%%/static/frontend/da-DK/styles.css
+%%OPTDIR%%/static/frontend/de-DE/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/de-DE/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/de-DE/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/de-DE/assets/document.png
+%%OPTDIR%%/static/frontend/de-DE/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/de-DE/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/de-DE/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/de-DE/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/de-DE/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/de-DE/assets/logo.svg
+%%OPTDIR%%/static/frontend/de-DE/favicon.ico
+%%OPTDIR%%/static/frontend/de-DE/index.html
+%%OPTDIR%%/static/frontend/de-DE/main.js
+%%OPTDIR%%/static/frontend/de-DE/manifest.webmanifest
+%%OPTDIR%%/static/frontend/de-DE/polyfills.js
+%%OPTDIR%%/static/frontend/de-DE/runtime.js
+%%OPTDIR%%/static/frontend/de-DE/styles.css
+%%OPTDIR%%/static/frontend/en-GB/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/en-GB/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/en-GB/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/en-GB/assets/document.png
+%%OPTDIR%%/static/frontend/en-GB/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/en-GB/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/en-GB/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/en-GB/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/en-GB/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/en-GB/assets/logo.svg
+%%OPTDIR%%/static/frontend/en-GB/favicon.ico
+%%OPTDIR%%/static/frontend/en-GB/index.html
+%%OPTDIR%%/static/frontend/en-GB/main.js
+%%OPTDIR%%/static/frontend/en-GB/manifest.webmanifest
+%%OPTDIR%%/static/frontend/en-GB/polyfills.js
+%%OPTDIR%%/static/frontend/en-GB/runtime.js
+%%OPTDIR%%/static/frontend/en-GB/styles.css
+%%OPTDIR%%/static/frontend/en-US/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/en-US/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/en-US/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/en-US/assets/document.png
+%%OPTDIR%%/static/frontend/en-US/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/en-US/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/en-US/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/en-US/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/en-US/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/en-US/assets/logo.svg
+%%OPTDIR%%/static/frontend/en-US/favicon.ico
+%%OPTDIR%%/static/frontend/en-US/index.html
+%%OPTDIR%%/static/frontend/en-US/main.js
+%%OPTDIR%%/static/frontend/en-US/manifest.webmanifest
+%%OPTDIR%%/static/frontend/en-US/polyfills.js
+%%OPTDIR%%/static/frontend/en-US/runtime.js
+%%OPTDIR%%/static/frontend/en-US/styles.css
+%%OPTDIR%%/static/frontend/es-ES/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/es-ES/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/es-ES/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/es-ES/assets/document.png
+%%OPTDIR%%/static/frontend/es-ES/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/es-ES/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/es-ES/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/es-ES/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/es-ES/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/es-ES/assets/logo.svg
+%%OPTDIR%%/static/frontend/es-ES/favicon.ico
+%%OPTDIR%%/static/frontend/es-ES/index.html
+%%OPTDIR%%/static/frontend/es-ES/main.js
+%%OPTDIR%%/static/frontend/es-ES/manifest.webmanifest
+%%OPTDIR%%/static/frontend/es-ES/polyfills.js
+%%OPTDIR%%/static/frontend/es-ES/runtime.js
+%%OPTDIR%%/static/frontend/es-ES/styles.css
+%%OPTDIR%%/static/frontend/fi-FI/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/fi-FI/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/fi-FI/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/fi-FI/assets/document.png
+%%OPTDIR%%/static/frontend/fi-FI/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/fi-FI/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/fi-FI/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/fi-FI/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/fi-FI/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/fi-FI/assets/logo.svg
+%%OPTDIR%%/static/frontend/fi-FI/favicon.ico
+%%OPTDIR%%/static/frontend/fi-FI/index.html
+%%OPTDIR%%/static/frontend/fi-FI/main.js
+%%OPTDIR%%/static/frontend/fi-FI/manifest.webmanifest
+%%OPTDIR%%/static/frontend/fi-FI/polyfills.js
+%%OPTDIR%%/static/frontend/fi-FI/runtime.js
+%%OPTDIR%%/static/frontend/fi-FI/styles.css
+%%OPTDIR%%/static/frontend/fr-FR/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/fr-FR/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/fr-FR/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/fr-FR/assets/document.png
+%%OPTDIR%%/static/frontend/fr-FR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/fr-FR/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/fr-FR/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/fr-FR/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/fr-FR/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/fr-FR/assets/logo.svg
+%%OPTDIR%%/static/frontend/fr-FR/favicon.ico
+%%OPTDIR%%/static/frontend/fr-FR/index.html
+%%OPTDIR%%/static/frontend/fr-FR/main.js
+%%OPTDIR%%/static/frontend/fr-FR/manifest.webmanifest
+%%OPTDIR%%/static/frontend/fr-FR/polyfills.js
+%%OPTDIR%%/static/frontend/fr-FR/runtime.js
+%%OPTDIR%%/static/frontend/fr-FR/styles.css
+%%OPTDIR%%/static/frontend/it-IT/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/it-IT/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/it-IT/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/it-IT/assets/document.png
+%%OPTDIR%%/static/frontend/it-IT/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/it-IT/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/it-IT/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/it-IT/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/it-IT/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/it-IT/assets/logo.svg
+%%OPTDIR%%/static/frontend/it-IT/favicon.ico
+%%OPTDIR%%/static/frontend/it-IT/index.html
+%%OPTDIR%%/static/frontend/it-IT/main.js
+%%OPTDIR%%/static/frontend/it-IT/manifest.webmanifest
+%%OPTDIR%%/static/frontend/it-IT/polyfills.js
+%%OPTDIR%%/static/frontend/it-IT/runtime.js
+%%OPTDIR%%/static/frontend/it-IT/styles.css
+%%OPTDIR%%/static/frontend/lb-LU/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/lb-LU/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/lb-LU/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/lb-LU/assets/document.png
+%%OPTDIR%%/static/frontend/lb-LU/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/lb-LU/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/lb-LU/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/lb-LU/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/lb-LU/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/lb-LU/assets/logo.svg
+%%OPTDIR%%/static/frontend/lb-LU/favicon.ico
+%%OPTDIR%%/static/frontend/lb-LU/index.html
+%%OPTDIR%%/static/frontend/lb-LU/main.js
+%%OPTDIR%%/static/frontend/lb-LU/manifest.webmanifest
+%%OPTDIR%%/static/frontend/lb-LU/polyfills.js
+%%OPTDIR%%/static/frontend/lb-LU/runtime.js
+%%OPTDIR%%/static/frontend/lb-LU/styles.css
+%%OPTDIR%%/static/frontend/nl-NL/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/nl-NL/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/nl-NL/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/nl-NL/assets/document.png
+%%OPTDIR%%/static/frontend/nl-NL/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/nl-NL/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/nl-NL/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/nl-NL/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/nl-NL/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/nl-NL/assets/logo.svg
+%%OPTDIR%%/static/frontend/nl-NL/favicon.ico
+%%OPTDIR%%/static/frontend/nl-NL/index.html
+%%OPTDIR%%/static/frontend/nl-NL/main.js
+%%OPTDIR%%/static/frontend/nl-NL/manifest.webmanifest
+%%OPTDIR%%/static/frontend/nl-NL/polyfills.js
+%%OPTDIR%%/static/frontend/nl-NL/runtime.js
+%%OPTDIR%%/static/frontend/nl-NL/styles.css
+%%OPTDIR%%/static/frontend/pl-PL/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/pl-PL/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/pl-PL/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/pl-PL/assets/document.png
+%%OPTDIR%%/static/frontend/pl-PL/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/pl-PL/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/pl-PL/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/pl-PL/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/pl-PL/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/pl-PL/assets/logo.svg
+%%OPTDIR%%/static/frontend/pl-PL/favicon.ico
+%%OPTDIR%%/static/frontend/pl-PL/index.html
+%%OPTDIR%%/static/frontend/pl-PL/main.js
+%%OPTDIR%%/static/frontend/pl-PL/manifest.webmanifest
+%%OPTDIR%%/static/frontend/pl-PL/polyfills.js
+%%OPTDIR%%/static/frontend/pl-PL/runtime.js
+%%OPTDIR%%/static/frontend/pl-PL/styles.css
+%%OPTDIR%%/static/frontend/pt-BR/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/pt-BR/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/pt-BR/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/pt-BR/assets/document.png
+%%OPTDIR%%/static/frontend/pt-BR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/pt-BR/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/pt-BR/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/pt-BR/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/pt-BR/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/pt-BR/assets/logo.svg
+%%OPTDIR%%/static/frontend/pt-BR/favicon.ico
+%%OPTDIR%%/static/frontend/pt-BR/index.html
+%%OPTDIR%%/static/frontend/pt-BR/main.js
+%%OPTDIR%%/static/frontend/pt-BR/manifest.webmanifest
+%%OPTDIR%%/static/frontend/pt-BR/polyfills.js
+%%OPTDIR%%/static/frontend/pt-BR/runtime.js
+%%OPTDIR%%/static/frontend/pt-BR/styles.css
+%%OPTDIR%%/static/frontend/pt-PT/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/pt-PT/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/pt-PT/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/pt-PT/assets/document.png
+%%OPTDIR%%/static/frontend/pt-PT/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/pt-PT/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/pt-PT/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/pt-PT/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/pt-PT/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/pt-PT/assets/logo.svg
+%%OPTDIR%%/static/frontend/pt-PT/favicon.ico
+%%OPTDIR%%/static/frontend/pt-PT/index.html
+%%OPTDIR%%/static/frontend/pt-PT/main.js
+%%OPTDIR%%/static/frontend/pt-PT/manifest.webmanifest
+%%OPTDIR%%/static/frontend/pt-PT/polyfills.js
+%%OPTDIR%%/static/frontend/pt-PT/runtime.js
+%%OPTDIR%%/static/frontend/pt-PT/styles.css
+%%OPTDIR%%/static/frontend/ro-RO/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/ro-RO/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/ro-RO/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/ro-RO/assets/document.png
+%%OPTDIR%%/static/frontend/ro-RO/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/ro-RO/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/ro-RO/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/ro-RO/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/ro-RO/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/ro-RO/assets/logo.svg
+%%OPTDIR%%/static/frontend/ro-RO/favicon.ico
+%%OPTDIR%%/static/frontend/ro-RO/index.html
+%%OPTDIR%%/static/frontend/ro-RO/main.js
+%%OPTDIR%%/static/frontend/ro-RO/manifest.webmanifest
+%%OPTDIR%%/static/frontend/ro-RO/polyfills.js
+%%OPTDIR%%/static/frontend/ro-RO/runtime.js
+%%OPTDIR%%/static/frontend/ro-RO/styles.css
+%%OPTDIR%%/static/frontend/ru-RU/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/ru-RU/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/ru-RU/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/ru-RU/assets/document.png
+%%OPTDIR%%/static/frontend/ru-RU/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/ru-RU/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/ru-RU/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/ru-RU/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/ru-RU/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/ru-RU/assets/logo.svg
+%%OPTDIR%%/static/frontend/ru-RU/favicon.ico
+%%OPTDIR%%/static/frontend/ru-RU/index.html
+%%OPTDIR%%/static/frontend/ru-RU/main.js
+%%OPTDIR%%/static/frontend/ru-RU/manifest.webmanifest
+%%OPTDIR%%/static/frontend/ru-RU/polyfills.js
+%%OPTDIR%%/static/frontend/ru-RU/runtime.js
+%%OPTDIR%%/static/frontend/ru-RU/styles.css
+%%OPTDIR%%/static/frontend/sk-SK/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/sk-SK/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/sk-SK/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/sk-SK/assets/document.png
+%%OPTDIR%%/static/frontend/sk-SK/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/sk-SK/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/sk-SK/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/sk-SK/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/sk-SK/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/sk-SK/assets/logo.svg
+%%OPTDIR%%/static/frontend/sk-SK/favicon.ico
+%%OPTDIR%%/static/frontend/sk-SK/index.html
+%%OPTDIR%%/static/frontend/sk-SK/main.js
+%%OPTDIR%%/static/frontend/sk-SK/manifest.webmanifest
+%%OPTDIR%%/static/frontend/sk-SK/polyfills.js
+%%OPTDIR%%/static/frontend/sk-SK/runtime.js
+%%OPTDIR%%/static/frontend/sk-SK/styles.css
+%%OPTDIR%%/static/frontend/sl-SI/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/sl-SI/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/sl-SI/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/sl-SI/assets/document.png
+%%OPTDIR%%/static/frontend/sl-SI/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/sl-SI/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/sl-SI/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/sl-SI/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/sl-SI/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/sl-SI/assets/logo.svg
+%%OPTDIR%%/static/frontend/sl-SI/favicon.ico
+%%OPTDIR%%/static/frontend/sl-SI/index.html
+%%OPTDIR%%/static/frontend/sl-SI/main.js
+%%OPTDIR%%/static/frontend/sl-SI/manifest.webmanifest
+%%OPTDIR%%/static/frontend/sl-SI/polyfills.js
+%%OPTDIR%%/static/frontend/sl-SI/runtime.js
+%%OPTDIR%%/static/frontend/sl-SI/styles.css
+%%OPTDIR%%/static/frontend/sr-CS/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/sr-CS/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/sr-CS/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/sr-CS/assets/document.png
+%%OPTDIR%%/static/frontend/sr-CS/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/sr-CS/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/sr-CS/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/sr-CS/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/sr-CS/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/sr-CS/assets/logo.svg
+%%OPTDIR%%/static/frontend/sr-CS/favicon.ico
+%%OPTDIR%%/static/frontend/sr-CS/index.html
+%%OPTDIR%%/static/frontend/sr-CS/main.js
+%%OPTDIR%%/static/frontend/sr-CS/manifest.webmanifest
+%%OPTDIR%%/static/frontend/sr-CS/polyfills.js
+%%OPTDIR%%/static/frontend/sr-CS/runtime.js
+%%OPTDIR%%/static/frontend/sr-CS/styles.css
+%%OPTDIR%%/static/frontend/sv-SE/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/sv-SE/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/sv-SE/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/sv-SE/assets/document.png
+%%OPTDIR%%/static/frontend/sv-SE/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/sv-SE/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/sv-SE/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/sv-SE/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/sv-SE/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/sv-SE/assets/logo.svg
+%%OPTDIR%%/static/frontend/sv-SE/favicon.ico
+%%OPTDIR%%/static/frontend/sv-SE/index.html
+%%OPTDIR%%/static/frontend/sv-SE/main.js
+%%OPTDIR%%/static/frontend/sv-SE/manifest.webmanifest
+%%OPTDIR%%/static/frontend/sv-SE/polyfills.js
+%%OPTDIR%%/static/frontend/sv-SE/runtime.js
+%%OPTDIR%%/static/frontend/sv-SE/styles.css
+%%OPTDIR%%/static/frontend/tr-TR/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/tr-TR/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/tr-TR/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/tr-TR/assets/document.png
+%%OPTDIR%%/static/frontend/tr-TR/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/tr-TR/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/tr-TR/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/tr-TR/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/tr-TR/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/tr-TR/assets/logo.svg
+%%OPTDIR%%/static/frontend/tr-TR/favicon.ico
+%%OPTDIR%%/static/frontend/tr-TR/index.html
+%%OPTDIR%%/static/frontend/tr-TR/main.js
+%%OPTDIR%%/static/frontend/tr-TR/manifest.webmanifest
+%%OPTDIR%%/static/frontend/tr-TR/polyfills.js
+%%OPTDIR%%/static/frontend/tr-TR/runtime.js
+%%OPTDIR%%/static/frontend/tr-TR/styles.css
+%%OPTDIR%%/static/frontend/uk-UA/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/uk-UA/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/uk-UA/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/uk-UA/assets/document.png
+%%OPTDIR%%/static/frontend/uk-UA/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/uk-UA/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/uk-UA/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/uk-UA/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/uk-UA/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/uk-UA/assets/logo.svg
+%%OPTDIR%%/static/frontend/uk-UA/favicon.ico
+%%OPTDIR%%/static/frontend/uk-UA/index.html
+%%OPTDIR%%/static/frontend/uk-UA/main.js
+%%OPTDIR%%/static/frontend/uk-UA/manifest.webmanifest
+%%OPTDIR%%/static/frontend/uk-UA/polyfills.js
+%%OPTDIR%%/static/frontend/uk-UA/runtime.js
+%%OPTDIR%%/static/frontend/uk-UA/styles.css
+%%OPTDIR%%/static/frontend/zh-CN/3rdpartylicenses.txt
+%%OPTDIR%%/static/frontend/zh-CN/apple-touch-icon.png
+%%OPTDIR%%/static/frontend/zh-CN/assets/bootstrap-icons.svg
+%%OPTDIR%%/static/frontend/zh-CN/assets/document.png
+%%OPTDIR%%/static/frontend/zh-CN/assets/js/pdf.worker.min.js
+%%OPTDIR%%/static/frontend/zh-CN/assets/logo-dark-notext.svg
+%%OPTDIR%%/static/frontend/zh-CN/assets/logo-dark.svg
+%%OPTDIR%%/static/frontend/zh-CN/assets/logo-notext.svg
+%%OPTDIR%%/static/frontend/zh-CN/assets/logo-white-notext.svg
+%%OPTDIR%%/static/frontend/zh-CN/assets/logo.svg
+%%OPTDIR%%/static/frontend/zh-CN/favicon.ico
+%%OPTDIR%%/static/frontend/zh-CN/index.html
+%%OPTDIR%%/static/frontend/zh-CN/main.js
+%%OPTDIR%%/static/frontend/zh-CN/manifest.webmanifest
+%%OPTDIR%%/static/frontend/zh-CN/polyfills.js
+%%OPTDIR%%/static/frontend/zh-CN/runtime.js
+%%OPTDIR%%/static/frontend/zh-CN/styles.css
+%%OPTDIR%%/static/guardian/img/icon-no.svg
+%%OPTDIR%%/static/guardian/img/icon-yes.svg
+%%OPTDIR%%/static/paperless/img/favicon.ico
+%%OPTDIR%%/static/paperless/img/logo-dark.png
+%%OPTDIR%%/static/paperless/img/logo-light.png
+%%OPTDIR%%/static/rest_framework/css/bootstrap-theme.min.css
+%%OPTDIR%%/static/rest_framework/css/bootstrap-theme.min.css.map
+%%OPTDIR%%/static/rest_framework/css/bootstrap-tweaks.css
+%%OPTDIR%%/static/rest_framework/css/bootstrap.min.css
+%%OPTDIR%%/static/rest_framework/css/bootstrap.min.css.map
+%%OPTDIR%%/static/rest_framework/css/default.css
+%%OPTDIR%%/static/rest_framework/css/font-awesome-4.0.3.css
+%%OPTDIR%%/static/rest_framework/css/prettify.css
+%%OPTDIR%%/static/rest_framework/docs/css/base.css
+%%OPTDIR%%/static/rest_framework/docs/css/highlight.css
+%%OPTDIR%%/static/rest_framework/docs/css/jquery.json-view.min.css
+%%OPTDIR%%/static/rest_framework/docs/img/favicon.ico
+%%OPTDIR%%/static/rest_framework/docs/img/grid.png
+%%OPTDIR%%/static/rest_framework/docs/js/api.js
+%%OPTDIR%%/static/rest_framework/docs/js/highlight.pack.js
+%%OPTDIR%%/static/rest_framework/docs/js/jquery.json-view.min.js
+%%OPTDIR%%/static/rest_framework/fonts/fontawesome-webfont.eot
+%%OPTDIR%%/static/rest_framework/fonts/fontawesome-webfont.svg
+%%OPTDIR%%/static/rest_framework/fonts/fontawesome-webfont.ttf
+%%OPTDIR%%/static/rest_framework/fonts/fontawesome-webfont.woff
+%%OPTDIR%%/static/rest_framework/fonts/glyphicons-halflings-regular.eot
+%%OPTDIR%%/static/rest_framework/fonts/glyphicons-halflings-regular.svg
+%%OPTDIR%%/static/rest_framework/fonts/glyphicons-halflings-regular.ttf
+%%OPTDIR%%/static/rest_framework/fonts/glyphicons-halflings-regular.woff
+%%OPTDIR%%/static/rest_framework/fonts/glyphicons-halflings-regular.woff2
+%%OPTDIR%%/static/rest_framework/img/glyphicons-halflings-white.png
+%%OPTDIR%%/static/rest_framework/img/glyphicons-halflings.png
+%%OPTDIR%%/static/rest_framework/img/grid.png
+%%OPTDIR%%/static/rest_framework/js/ajax-form.js
+%%OPTDIR%%/static/rest_framework/js/bootstrap.min.js
+%%OPTDIR%%/static/rest_framework/js/coreapi-0.1.1.js
+%%OPTDIR%%/static/rest_framework/js/csrf.js
+%%OPTDIR%%/static/rest_framework/js/default.js
+%%OPTDIR%%/static/rest_framework/js/jquery-3.5.1.min.js
+%%OPTDIR%%/static/rest_framework/js/prettify-min.js
+%%OPTDIR%%/static/signin.css
+@dir %%OPTDIR%%/bin
+@dir %%OPTDIR%%/consume
+@dir %%OPTDIR%%/data
+@dir %%OPTDIR%%/media
+@dir %%OPTDIR%%/setup
+@dir %%OPTDIR%%/src/documents/management/commands
+@dir %%OPTDIR%%/src/documents/management
+@dir %%OPTDIR%%/src/documents/migrations
+@dir %%OPTDIR%%/src/documents/resources
+@dir %%OPTDIR%%/src/documents/signals
+@dir %%OPTDIR%%/src/documents/static/frontend/ar-AR/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/ar-AR/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/ar-AR
+@dir %%OPTDIR%%/src/documents/static/frontend/be-BY/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/be-BY/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/be-BY
+@dir %%OPTDIR%%/src/documents/static/frontend/ca-ES/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/ca-ES/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/ca-ES
+@dir %%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/cs-CZ/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/cs-CZ
+@dir %%OPTDIR%%/src/documents/static/frontend/da-DK/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/da-DK/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/da-DK
+@dir %%OPTDIR%%/src/documents/static/frontend/de-DE/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/de-DE/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/de-DE
+@dir %%OPTDIR%%/src/documents/static/frontend/en-GB/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/en-GB/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/en-GB
+@dir %%OPTDIR%%/src/documents/static/frontend/en-US/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/en-US/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/en-US
+@dir %%OPTDIR%%/src/documents/static/frontend/es-ES/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/es-ES/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/es-ES
+@dir %%OPTDIR%%/src/documents/static/frontend/fi-FI/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/fi-FI/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/fi-FI
+@dir %%OPTDIR%%/src/documents/static/frontend/fr-FR/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/fr-FR/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/fr-FR
+@dir %%OPTDIR%%/src/documents/static/frontend/it-IT/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/it-IT/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/it-IT
+@dir %%OPTDIR%%/src/documents/static/frontend/lb-LU/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/lb-LU/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/lb-LU
+@dir %%OPTDIR%%/src/documents/static/frontend/nl-NL/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/nl-NL/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/nl-NL
+@dir %%OPTDIR%%/src/documents/static/frontend/pl-PL/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/pl-PL/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/pl-PL
+@dir %%OPTDIR%%/src/documents/static/frontend/pt-BR/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/pt-BR/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/pt-BR
+@dir %%OPTDIR%%/src/documents/static/frontend/pt-PT/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/pt-PT/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/pt-PT
+@dir %%OPTDIR%%/src/documents/static/frontend/ro-RO/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/ro-RO/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/ro-RO
+@dir %%OPTDIR%%/src/documents/static/frontend/ru-RU/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/ru-RU/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/ru-RU
+@dir %%OPTDIR%%/src/documents/static/frontend/sk-SK/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/sk-SK/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/sk-SK
+@dir %%OPTDIR%%/src/documents/static/frontend/sl-SI/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/sl-SI/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/sl-SI
+@dir %%OPTDIR%%/src/documents/static/frontend/sr-CS/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/sr-CS/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/sr-CS
+@dir %%OPTDIR%%/src/documents/static/frontend/sv-SE/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/sv-SE/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/sv-SE
+@dir %%OPTDIR%%/src/documents/static/frontend/tr-TR/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/tr-TR/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/tr-TR
+@dir %%OPTDIR%%/src/documents/static/frontend/uk-UA/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/uk-UA/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/uk-UA
+@dir %%OPTDIR%%/src/documents/static/frontend/zh-CN/assets/js
+@dir %%OPTDIR%%/src/documents/static/frontend/zh-CN/assets
+@dir %%OPTDIR%%/src/documents/static/frontend/zh-CN
+@dir %%OPTDIR%%/src/documents/static/frontend
+@dir %%OPTDIR%%/src/documents/static
+@dir %%OPTDIR%%/src/documents/templates/registration
+@dir %%OPTDIR%%/src/documents/templates
+@dir %%OPTDIR%%/src/documents/tests/data
+@dir %%OPTDIR%%/src/documents/tests/examples
+@dir %%OPTDIR%%/src/documents/tests/samples/barcodes
+@dir %%OPTDIR%%/src/documents/tests/samples/documents/archive
+@dir %%OPTDIR%%/src/documents/tests/samples/documents/originals
+@dir %%OPTDIR%%/src/documents/tests/samples/documents/thumbnails
+@dir %%OPTDIR%%/src/documents/tests/samples/documents
+@dir %%OPTDIR%%/src/documents/tests/samples
+@dir %%OPTDIR%%/src/documents/tests
+@dir %%OPTDIR%%/src/documents
+@dir %%OPTDIR%%/src/locale/af_ZA/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/af_ZA
+@dir %%OPTDIR%%/src/locale/ar_AR/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/ar_AR
+@dir %%OPTDIR%%/src/locale/be_BY/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/be_BY
+@dir %%OPTDIR%%/src/locale/ca_ES/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/ca_ES
+@dir %%OPTDIR%%/src/locale/cs_CZ/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/cs_CZ
+@dir %%OPTDIR%%/src/locale/da_DK/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/da_DK
+@dir %%OPTDIR%%/src/locale/de_DE/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/de_DE
+@dir %%OPTDIR%%/src/locale/el_GR/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/el_GR
+@dir %%OPTDIR%%/src/locale/en_GB/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/en_GB
+@dir %%OPTDIR%%/src/locale/en_US/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/en_US
+@dir %%OPTDIR%%/src/locale/es_ES/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/es_ES
+@dir %%OPTDIR%%/src/locale/fi_FI/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/fi_FI
+@dir %%OPTDIR%%/src/locale/fr_FR/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/fr_FR
+@dir %%OPTDIR%%/src/locale/he_IL/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/he_IL
+@dir %%OPTDIR%%/src/locale/hr_HR/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/hr_HR
+@dir %%OPTDIR%%/src/locale/hu_HU/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/hu_HU
+@dir %%OPTDIR%%/src/locale/id_ID/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/id_ID
+@dir %%OPTDIR%%/src/locale/it_IT/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/it_IT
+@dir %%OPTDIR%%/src/locale/ja_JP/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/ja_JP
+@dir %%OPTDIR%%/src/locale/km_KH/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/km_KH
+@dir %%OPTDIR%%/src/locale/ko_KR/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/ko_KR
+@dir %%OPTDIR%%/src/locale/la_LA/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/la_LA
+@dir %%OPTDIR%%/src/locale/lb_LU/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/lb_LU
+@dir %%OPTDIR%%/src/locale/nb_NO/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/nb_NO
+@dir %%OPTDIR%%/src/locale/nl_NL/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/nl_NL
+@dir %%OPTDIR%%/src/locale/no_NO/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/no_NO
+@dir %%OPTDIR%%/src/locale/pl_PL/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/pl_PL
+@dir %%OPTDIR%%/src/locale/pt_BR/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/pt_BR
+@dir %%OPTDIR%%/src/locale/pt_PT/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/pt_PT
+@dir %%OPTDIR%%/src/locale/ro_RO/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/ro_RO
+@dir %%OPTDIR%%/src/locale/ru_RU/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/ru_RU
+@dir %%OPTDIR%%/src/locale/sk_SK/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/sk_SK
+@dir %%OPTDIR%%/src/locale/sl_SI/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/sl_SI
+@dir %%OPTDIR%%/src/locale/sr_CS/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/sr_CS
+@dir %%OPTDIR%%/src/locale/sv_SE/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/sv_SE
+@dir %%OPTDIR%%/src/locale/th_TH/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/th_TH
+@dir %%OPTDIR%%/src/locale/tr_TR/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/tr_TR
+@dir %%OPTDIR%%/src/locale/uk_UA/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/uk_UA
+@dir %%OPTDIR%%/src/locale/xh_ZA/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/xh_ZA
+@dir %%OPTDIR%%/src/locale/zh_CN/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/zh_CN
+@dir %%OPTDIR%%/src/locale/zh_TW/LC_MESSAGES
+@dir %%OPTDIR%%/src/locale/zh_TW
+@dir %%OPTDIR%%/src/locale
+@dir %%OPTDIR%%/src/paperless/static/paperless/img
+@dir %%OPTDIR%%/src/paperless/static/paperless
+@dir %%OPTDIR%%/src/paperless/static
+@dir %%OPTDIR%%/src/paperless/tests
+@dir %%OPTDIR%%/src/paperless
+@dir %%OPTDIR%%/src/paperless_mail/management/commands
+@dir %%OPTDIR%%/src/paperless_mail/management
+@dir %%OPTDIR%%/src/paperless_mail/migrations
+@dir %%OPTDIR%%/src/paperless_mail/templates
+@dir %%OPTDIR%%/src/paperless_mail/tests/samples
+@dir %%OPTDIR%%/src/paperless_mail/tests
+@dir %%OPTDIR%%/src/paperless_mail
+@dir %%OPTDIR%%/src/paperless_tesseract/tests/samples
+@dir %%OPTDIR%%/src/paperless_tesseract/tests
+@dir %%OPTDIR%%/src/paperless_tesseract
+@dir %%OPTDIR%%/src/paperless_text/tests/samples
+@dir %%OPTDIR%%/src/paperless_text/tests
+@dir %%OPTDIR%%/src/paperless_text
+@dir %%OPTDIR%%/src/paperless_tika/tests/samples
+@dir %%OPTDIR%%/src/paperless_tika/tests
+@dir %%OPTDIR%%/src/paperless_tika
+@dir %%OPTDIR%%/src
+@dir %%OPTDIR%%/static/admin/css/vendor/select2
+@dir %%OPTDIR%%/static/admin/css/vendor
+@dir %%OPTDIR%%/static/admin/css
+@dir %%OPTDIR%%/static/admin/fonts
+@dir %%OPTDIR%%/static/admin/img/gis
+@dir %%OPTDIR%%/static/admin/img
+@dir %%OPTDIR%%/static/admin/js/admin
+@dir %%OPTDIR%%/static/admin/js/vendor/jquery
+@dir %%OPTDIR%%/static/admin/js/vendor/select2/i18n
+@dir %%OPTDIR%%/static/admin/js/vendor/select2
+@dir %%OPTDIR%%/static/admin/js/vendor/xregexp
+@dir %%OPTDIR%%/static/admin/js/vendor
+@dir %%OPTDIR%%/static/admin/js
+@dir %%OPTDIR%%/static/admin
+@dir %%OPTDIR%%/static/django_extensions/css
+@dir %%OPTDIR%%/static/django_extensions/img
+@dir %%OPTDIR%%/static/django_extensions/js
+@dir %%OPTDIR%%/static/django_extensions
+@dir %%OPTDIR%%/static/frontend/ar-AR/assets/js
+@dir %%OPTDIR%%/static/frontend/ar-AR/assets
+@dir %%OPTDIR%%/static/frontend/ar-AR
+@dir %%OPTDIR%%/static/frontend/be-BY/assets/js
+@dir %%OPTDIR%%/static/frontend/be-BY/assets
+@dir %%OPTDIR%%/static/frontend/be-BY
+@dir %%OPTDIR%%/static/frontend/ca-ES/assets/js
+@dir %%OPTDIR%%/static/frontend/ca-ES/assets
+@dir %%OPTDIR%%/static/frontend/ca-ES
+@dir %%OPTDIR%%/static/frontend/cs-CZ/assets/js
+@dir %%OPTDIR%%/static/frontend/cs-CZ/assets
+@dir %%OPTDIR%%/static/frontend/cs-CZ
+@dir %%OPTDIR%%/static/frontend/da-DK/assets/js
+@dir %%OPTDIR%%/static/frontend/da-DK/assets
+@dir %%OPTDIR%%/static/frontend/da-DK
+@dir %%OPTDIR%%/static/frontend/de-DE/assets/js
+@dir %%OPTDIR%%/static/frontend/de-DE/assets
+@dir %%OPTDIR%%/static/frontend/de-DE
+@dir %%OPTDIR%%/static/frontend/en-GB/assets/js
+@dir %%OPTDIR%%/static/frontend/en-GB/assets
+@dir %%OPTDIR%%/static/frontend/en-GB
+@dir %%OPTDIR%%/static/frontend/en-US/assets/js
+@dir %%OPTDIR%%/static/frontend/en-US/assets
+@dir %%OPTDIR%%/static/frontend/en-US
+@dir %%OPTDIR%%/static/frontend/es-ES/assets/js
+@dir %%OPTDIR%%/static/frontend/es-ES/assets
+@dir %%OPTDIR%%/static/frontend/es-ES
+@dir %%OPTDIR%%/static/frontend/fi-FI/assets/js
+@dir %%OPTDIR%%/static/frontend/fi-FI/assets
+@dir %%OPTDIR%%/static/frontend/fi-FI
+@dir %%OPTDIR%%/static/frontend/fr-FR/assets/js
+@dir %%OPTDIR%%/static/frontend/fr-FR/assets
+@dir %%OPTDIR%%/static/frontend/fr-FR
+@dir %%OPTDIR%%/static/frontend/it-IT/assets/js
+@dir %%OPTDIR%%/static/frontend/it-IT/assets
+@dir %%OPTDIR%%/static/frontend/it-IT
+@dir %%OPTDIR%%/static/frontend/lb-LU/assets/js
+@dir %%OPTDIR%%/static/frontend/lb-LU/assets
+@dir %%OPTDIR%%/static/frontend/lb-LU
+@dir %%OPTDIR%%/static/frontend/nl-NL/assets/js
+@dir %%OPTDIR%%/static/frontend/nl-NL/assets
+@dir %%OPTDIR%%/static/frontend/nl-NL
+@dir %%OPTDIR%%/static/frontend/pl-PL/assets/js
+@dir %%OPTDIR%%/static/frontend/pl-PL/assets
+@dir %%OPTDIR%%/static/frontend/pl-PL
+@dir %%OPTDIR%%/static/frontend/pt-BR/assets/js
+@dir %%OPTDIR%%/static/frontend/pt-BR/assets
+@dir %%OPTDIR%%/static/frontend/pt-BR
+@dir %%OPTDIR%%/static/frontend/pt-PT/assets/js
+@dir %%OPTDIR%%/static/frontend/pt-PT/assets
+@dir %%OPTDIR%%/static/frontend/pt-PT
+@dir %%OPTDIR%%/static/frontend/ro-RO/assets/js
+@dir %%OPTDIR%%/static/frontend/ro-RO/assets
+@dir %%OPTDIR%%/static/frontend/ro-RO
+@dir %%OPTDIR%%/static/frontend/ru-RU/assets/js
+@dir %%OPTDIR%%/static/frontend/ru-RU/assets
+@dir %%OPTDIR%%/static/frontend/ru-RU
+@dir %%OPTDIR%%/static/frontend/sk-SK/assets/js
+@dir %%OPTDIR%%/static/frontend/sk-SK/assets
+@dir %%OPTDIR%%/static/frontend/sk-SK
+@dir %%OPTDIR%%/static/frontend/sl-SI/assets/js
+@dir %%OPTDIR%%/static/frontend/sl-SI/assets
+@dir %%OPTDIR%%/static/frontend/sl-SI
+@dir %%OPTDIR%%/static/frontend/sr-CS/assets/js
+@dir %%OPTDIR%%/static/frontend/sr-CS/assets
+@dir %%OPTDIR%%/static/frontend/sr-CS
+@dir %%OPTDIR%%/static/frontend/sv-SE/assets/js
+@dir %%OPTDIR%%/static/frontend/sv-SE/assets
+@dir %%OPTDIR%%/static/frontend/sv-SE
+@dir %%OPTDIR%%/static/frontend/tr-TR/assets/js
+@dir %%OPTDIR%%/static/frontend/tr-TR/assets
+@dir %%OPTDIR%%/static/frontend/tr-TR
+@dir %%OPTDIR%%/static/frontend/uk-UA/assets/js
+@dir %%OPTDIR%%/static/frontend/uk-UA/assets
+@dir %%OPTDIR%%/static/frontend/uk-UA
+@dir %%OPTDIR%%/static/frontend/zh-CN/assets/js
+@dir %%OPTDIR%%/static/frontend/zh-CN/assets
+@dir %%OPTDIR%%/static/frontend/zh-CN
+@dir %%OPTDIR%%/static/frontend
+@dir %%OPTDIR%%/static/guardian/img
+@dir %%OPTDIR%%/static/guardian
+@dir %%OPTDIR%%/static/paperless/img
+@dir %%OPTDIR%%/static/paperless
+@dir %%OPTDIR%%/static/rest_framework/css
+@dir %%OPTDIR%%/static/rest_framework/docs/css
+@dir %%OPTDIR%%/static/rest_framework/docs/img
+@dir %%OPTDIR%%/static/rest_framework/docs/js
+@dir %%OPTDIR%%/static/rest_framework/docs
+@dir %%OPTDIR%%/static/rest_framework/fonts
+@dir %%OPTDIR%%/static/rest_framework/img
+@dir %%OPTDIR%%/static/rest_framework/js
+@dir %%OPTDIR%%/static/rest_framework
+@dir %%OPTDIR%%/static
+@dir %%OPTDIR%%
+@dir /opt

@@ -1,0 +1,10 @@
+#!/bin/sh
+[ "$USER" != %%USER%% ] && echo "This script should be run as %%USER%%. Aborting." && exit 1
+
+echo "Migrating database"
+
+. %%OPTDIR%%/venv/bin/activate
+cd %%OPTDIR%%/src
+python3 %%OPTDIR%%/src/manage.py migrate
+
+deactivate

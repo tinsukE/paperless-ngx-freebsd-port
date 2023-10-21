@@ -1,0 +1,16 @@
+#!/bin/sh
+[ "$USER" != %%USER%% ] && echo "This script should be run as %%USER%%. Aborting." && exit 1
+
+echo "Configuring python venv"
+
+%%PYTHON_CMD%% -m venv --system-site-packages %%OPTDIR%%/venv
+chmod -R +x %%OPTDIR%%/venv/bin
+. %%OPTDIR%%/venv/bin/activate
+
+echo "Upgrading pip"
+pip install --upgrade pip
+
+echo "Installing python requirements"
+pip install -r %%OPTDIR%%/requirements.txt
+
+deactivate

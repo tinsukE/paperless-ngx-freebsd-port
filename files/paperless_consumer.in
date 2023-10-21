@@ -1,0 +1,6 @@
+#!/bin/sh
+[ "$USER" != %%USER%% ] && echo "This script should be run as %%USER%%. Aborting." && exit 1
+
+. %%OPTDIR%%/venv/bin/activate
+cd %%OPTDIR%%/src
+exec python3 %%OPTDIR%%/src/manage.py document_consumer

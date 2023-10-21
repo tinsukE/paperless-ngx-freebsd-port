@@ -1,0 +1,24 @@
+#!/bin/sh
+
+# PROVIDE: paperless_taskqueued
+# REQUIRE: DAEMON LOGIN redis
+# KEYWORD: shutdown
+
+# Add the following lines to /etc/rc.conf to enable paperless_taskqueued:
+# paperless_taskqueued_enable="YES"
+# Or run:
+# sysrc paperless_taskqueued_enable="YES"
+
+. /etc/rc.subr
+
+name="paperless_taskqueued"
+rcvar="${name}_enable"
+procname="daemon"
+
+pidfile="/var/run/${name}.pid"
+
+command="/usr/sbin/daemon"
+command_args="-f -P ${pidfile} -u %%USER%% %%OPTDIR%%/bin/paperless_taskqueue"
+
+load_rc_config $name
+run_rc_command "$1"

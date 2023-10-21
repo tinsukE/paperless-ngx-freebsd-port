@@ -1,0 +1,6 @@
+#!/bin/sh
+[ "$USER" != %%USER%% ] && echo "This script should be run as %%USER%%. Aborting." && exit 1
+
+. %%OPTDIR%%/venv/bin/activate
+cd %%OPTDIR%%/src
+exec celery --app paperless worker --loglevel INFO

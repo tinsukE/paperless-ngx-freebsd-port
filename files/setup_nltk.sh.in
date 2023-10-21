@@ -1,0 +1,14 @@
+#!/bin/sh
+[ "$USER" != %%USER%% ] && echo "This script should be run as %%USER%%. Aborting." && exit 1
+
+echo "Downloading NLTK data"
+
+. %%OPTDIR%%/venv/bin/activate
+
+NLTKDIR=%%OPTDIR%%/nltk
+mkdir -p $NLTKDIR
+python3 -W ignore::RuntimeWarning -m nltk.downloader -d $NLTKDIR snowball_data
+python3 -W ignore::RuntimeWarning -m nltk.downloader -d $NLTKDIR stopwords
+python3 -W ignore::RuntimeWarning -m nltk.downloader -d $NLTKDIR punkt
+
+deactivate

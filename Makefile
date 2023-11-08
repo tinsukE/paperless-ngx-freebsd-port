@@ -25,7 +25,6 @@ RUN_DEPENDS=	\
 		tesseract>0:graphics/tesseract \
 		unpaper>0:graphics/unpaper \
 		zbar>0:graphics/zbar \
-		${PYTHON_PKGNAMEPREFIX}pyinotify>0:devel/py-pyinotify@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}numpy>0:math/py-numpy@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}scikit-learn>0:science/py-scikit-learn@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}scipy>0:science/py-scipy@${PY_FLAVOR} \
@@ -86,6 +85,7 @@ post-patch:
 	@${REINPLACE_CMD} 's|#PAPERLESS_REDIS|PAPERLESS_REDIS|' ${WRKSRC}/paperless.conf
 	@${REINPLACE_CMD} 's|PAPERLESS_REDIS.*$$|&\nPAPERLESS_DBENGINE=sqlite|' ${WRKSRC}/paperless.conf
 	@${REINPLACE_CMD} 's|PAPERLESS_DATA_DIR.*$$|&\nPAPERLESS_NLTK=../nltk|' ${WRKSRC}/paperless.conf
+	@${REINPLACE_CMD} 's|#PAPERLESS_CONSUMER_POLLING|PAPERLESS_CONSUMER_POLLING|' ${WRKSRC}/paperless.conf
 
 do-install:
 	cd ${WRKSRC} && ${COPYTREE_SHARE} src ${STAGEDIR}${OPTDIR}

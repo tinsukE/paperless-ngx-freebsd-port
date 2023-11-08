@@ -78,15 +78,6 @@ GROUPS=	paperless
 
 NO_BUILD=	yes
 
-post-patch:
-	# dependencies that are satisfied via ports or not needed
-	@${REINPLACE_CMD} -e '/gunicorn/d;/scikit-learn/d;/scipy/d;/numpy/d;/inotify-simple/d;/inotifyrecursive/d' ${WRKSRC}/requirements.txt
-	# configuration file defaults
-	@${REINPLACE_CMD} 's|#PAPERLESS_REDIS|PAPERLESS_REDIS|' ${WRKSRC}/paperless.conf
-	@${REINPLACE_CMD} 's|PAPERLESS_REDIS.*$$|&\nPAPERLESS_DBENGINE=sqlite|' ${WRKSRC}/paperless.conf
-	@${REINPLACE_CMD} 's|PAPERLESS_DATA_DIR.*$$|&\nPAPERLESS_NLTK=../nltk|' ${WRKSRC}/paperless.conf
-	@${REINPLACE_CMD} 's|#PAPERLESS_CONSUMER_POLLING|PAPERLESS_CONSUMER_POLLING|' ${WRKSRC}/paperless.conf
-
 do-install:
 	cd ${WRKSRC} && ${COPYTREE_SHARE} src ${STAGEDIR}${OPTDIR}
 	cd ${WRKSRC} && ${COPYTREE_SHARE} static ${STAGEDIR}${OPTDIR}

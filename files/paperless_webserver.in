@@ -1,9 +1,6 @@
 #!/bin/sh
 [ "$USER" != %%USER%% ] && echo "This script should be run as %%USER%%. Aborting." && exit 1
 
-export PAPERLESS_ADMIN_USER=admin
-export PAPERLESS_ADMIN_PASSWORD=admin
-
 . %%OPTDIR%%/venv/bin/activate
 cd %%OPTDIR%%/src
 exec python3 %%OPTDIR%%/src/manage.py runserver 0.0.0.0:8000

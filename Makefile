@@ -72,7 +72,7 @@ PLIST_SUB=	\
 	OPTDIR=${OPTDIR} \
 
 WRKSRC=	${WRKDIR}/${PORTNAME}
-OPTDIR=	/opt/${PORTNAME}
+OPTDIR=	/opt/paperless
 
 USERS=	paperless
 GROUPS=	paperless

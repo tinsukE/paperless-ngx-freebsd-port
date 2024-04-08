@@ -15,7 +15,6 @@ sysrc paperless_consumerd=YES
 
 Create a user by running:
 %%OPTDIR%%/setup/setup_user.sh
-(otherwise a default user with name/password admin/admin will be created at the first time paperless_webserverd is started)
 
 The configuration file can be found at:
 %%OPTDIR%%/paperless.conf

@@ -1,0 +1,28 @@
+[
+{ type: install
+  message: <<EOM
+paperless-ngx needs the following services to run:
+- paperless_webserverd: the web app
+- paperless_schedulerd: the celery beat, dispatches async workers on a timely fashion
+- paperless_taskqueued: the celery async workers, used for processing files, training AI classifiers, etc
+- paperless_consumerd: the consumption task, optional. It consumes/imports files from the consumption path
+
+Configure them to start automatically by running:
+sysrc paperless_webserverd=YES
+sysrc paperless_schedulerd=YES
+sysrc paperless_taskqueued=YES
+sysrc paperless_consumerd=YES
+
+Create a user by running:
+%%OPTDIR%%/setup/setup_user.sh
+(otherwise a default user with name/password admin/admin will be created at the first time paperless_webserverd is started)
+
+The configuration file can be found at:
+%%OPTDIR%%/paperless.conf
+
+The settings are explained here:
+https://docs.paperless-ngx.com/configuration/
+
+EOM
+}
+]

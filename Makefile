@@ -51,6 +51,7 @@ USE_RC_SUBR=	\
 		paperless_webserverd \
 
 SUB_FILES=	\
+		pkg-message \
 		paperless_consumer \
 		paperless_scheduler \
 		paperless_taskqueue \

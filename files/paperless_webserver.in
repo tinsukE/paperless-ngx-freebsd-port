@@ -3,4 +3,5 @@
 
 . %%OPTDIR%%/venv/bin/activate
 cd %%OPTDIR%%/src
-exec python3 %%OPTDIR%%/src/manage.py runserver 0.0.0.0:8000
+exec gunicorn -c %%OPTDIR%%/gunicorn.conf.py paperless.asgi:application -b 0.0.0.0:8000
+

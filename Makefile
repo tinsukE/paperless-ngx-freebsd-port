@@ -84,6 +84,7 @@ do-install:
 	cd ${WRKSRC} && ${COPYTREE_SHARE} static ${STAGEDIR}${OPTDIR}
 	${INSTALL_DATA} ${WRKSRC}/requirements.txt ${STAGEDIR}${OPTDIR}/requirements.txt
 	${INSTALL_DATA} ${WRKSRC}/paperless.conf ${STAGEDIR}${OPTDIR}/paperless.conf.sample
+	${INSTALL_DATA} ${WRKSRC}/gunicorn.conf.py ${STAGEDIR}${OPTDIR}/gunicorn.conf.py.sample
 	${INSTALL} -d -m 755 ${STAGEDIR}/${OPTDIR}/bin/
 	${INSTALL_SCRIPT} ${WRKDIR}/paperless_consumer ${STAGEDIR}/${OPTDIR}/bin/
 	${INSTALL_SCRIPT} ${WRKDIR}/paperless_scheduler ${STAGEDIR}/${OPTDIR}/bin/

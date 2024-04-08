@@ -6,6 +6,7 @@
 @preunexec /usr/bin/find %%OPTDIR%%/src -type f -name "*.pyc" -delete
 @preunexec /usr/bin/find %%OPTDIR%%/src -type d -name "__pycache__" -delete
 @sample %%OPTDIR%%/paperless.conf.sample
+@sample %%OPTDIR%%/gunicorn.conf.py.sample
 @owner %%USER%%
 @group %%GROUP%%
 %%OPTDIR%%/bin/paperless_consumer

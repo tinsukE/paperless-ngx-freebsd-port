@@ -2,16 +2,16 @@
 { type: install
   message: <<EOM
 paperless-ngx needs the following services to run:
-- paperless_webserverd: the web app
-- paperless_schedulerd: the celery beat, dispatches async workers on a timely fashion
-- paperless_taskqueued: the celery async workers, used for processing files, training AI classifiers, etc
-- paperless_consumerd: the consumption task, optional. It consumes/imports files from the consumption path
+- webserver: the web app
+- scheduler: the celery beat, dispatches async workers on a timely fashion
+- task_queue: the celery async workers, used for processing files, training AI classifiers, etc
+- consumer: the consumption task, optional. It consumes/imports files from the consumption path
 
 Configure them to start automatically by running:
-sysrc paperless_webserverd=YES
-sysrc paperless_schedulerd=YES
-sysrc paperless_taskqueued=YES
-sysrc paperless_consumerd=YES
+sysrc paperless_enable=YES
+
+Disable specific sub-services by running:
+sysrc paperless_[webserver|scheduler|task_queue|consumer]_enable=NO
 
 Create a user by running:
 %%OPTDIR%%/setup/setup_user.sh

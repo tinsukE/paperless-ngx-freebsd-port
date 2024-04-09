@@ -1,0 +1,99 @@
+#!/bin/sh
+
+# PROVIDE: paperless
+# REQUIRE: DAEMON LOGIN redis
+# KEYWORD: shutdown
+
+# Add the following lines to /etc/rc.conf to enable paperless:
+# paperless_enable="YES"
+# Or run:
+# sysrc paperless_enable="YES"
+
+. /etc/rc.subr
+PATH=${PATH}:/usr/local/sbin:/usr/local/bin
+
+name="paperless"
+rcvar="${name}_enable"
+start_precmd="${name}_prestart"
+
+load_rc_config $name
+
+: ${paperless_services="webserver scheduler task_queue consumer"}
+
+# This handles service specific vars.
+if [ -n "$2" ]; then
+	service="$2"
+	if [ -n "${paperless_services}" ]; then
+		eval paperless_enable="\${${name}_${service}_enable:-${paperless_enable}}"
+	else
+		echo "$0: extra argument ignored"
+	fi
+else
+	if [ -n "${paperless_services}" -a -n "$1" ]; then
+		for service in ${paperless_services}; do
+			echo "===> ${name} service: ${service}"
+			/usr/local/etc/rc.d/${name} $1 ${service}
+			retcode="$?"
+			if [ "0${retcode}" -ne 0 ]; then
+				failed="${service} (${retcode}) ${failed:-}"
+			else
+				success="${service} ${success:-}"
+			fi
+		done
+		# It exits so that non-service rc.d is not started when there are services.
+		exit 0
+	fi
+fi
+
+piddir="/var/run/${name}"
+pidfile="${piddir}/${service}.pid"
+
+logdir="/var/log/${name}"
+logfile="${logdir}/${service}.log"
+
+uid=`id -u paperless`
+gid=`id -g paperless`
+
+paperless_prestart() {
+	install -d -o paperless "${piddir}"
+	install -d -o paperless "${logdir}"
+
+	. /opt/paperless/venv/bin/activate
+	cd /opt/paperless/src
+}
+
+set_celery_command() {
+	celery="/opt/paperless/venv/bin/celery --app paperless ${1} --loglevel INFO"
+
+	command="/usr/sbin/daemon"
+    command_args="-p ${pidfile} -o ${logfile} -u paperless ${celery}"
+    procname="/opt/paperless/venv/bin/python3.9"
+}
+
+case $service in
+"webserver")
+	command="/opt/paperless/venv/bin/gunicorn"
+	command_args="-c /opt/paperless/gunicorn.conf.py paperless.asgi:application -D"
+	command_args="${command_args} -p ${pidfile} --log-file ${logfile} -u paperless -g paperless"
+	command_args="${command_args} -b 0.0.0.0:8000"
+	procname="/opt/paperless/venv/bin/python3.9"
+	;;
+"scheduler")
+	set_celery_command "beat"
+	;;
+"task_queue")
+	set_celery_command "worker"
+	;;
+"consumer")
+	consumer="/opt/paperless/venv/bin/python /opt/paperless/src/manage.py document_consumer"
+
+	command="/usr/sbin/daemon"
+	command_args="-P ${pidfile} -o ${logfile} -u paperless ${consumer}"
+	;;
+*)
+	echo "invalid service ${service}"
+	exit 1
+	;;
+esac
+
+run_rc_command "$1"

@@ -9,10 +9,6 @@
 @sample %%OPTDIR%%/gunicorn.conf.py.sample
 @owner %%USER%%
 @group %%GROUP%%
-%%OPTDIR%%/bin/paperless_consumer
-%%OPTDIR%%/bin/paperless_scheduler
-%%OPTDIR%%/bin/paperless_taskqueue
-%%OPTDIR%%/bin/paperless_webserver
 %%OPTDIR%%/requirements.txt
 %%OPTDIR%%/setup/setup_database.sh
 %%OPTDIR%%/setup/setup_nltk.sh
@@ -1494,7 +1490,6 @@
 %%OPTDIR%%/static/rest_framework/js/jquery-3.5.1.min.js
 %%OPTDIR%%/static/rest_framework/js/prettify-min.js
 %%OPTDIR%%/static/signin.css
-@dir %%OPTDIR%%/bin
 @dir %%OPTDIR%%/consume
 @dir %%OPTDIR%%/data
 @dir %%OPTDIR%%/media

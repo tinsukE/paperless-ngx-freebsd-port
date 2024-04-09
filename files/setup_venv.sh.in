@@ -11,6 +11,6 @@ echo "Upgrading pip"
 pip install --upgrade pip
 
 echo "Installing python requirements"
-pip install -r %%OPTDIR%%/requirements.txt
+pip install -r %%OPTDIR%%/requirements.txt venv-run
 
 deactivate

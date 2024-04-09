@@ -85,7 +85,7 @@ case $service in
 	set_celery_command "worker"
 	;;
 "consumer")
-	consumer="%%PYTHON_CMD%% %%OPTDIR%%/src/manage.py document_consumer"
+	consumer="%%OPTDIR%%/venv/bin/venv-run --venv %%OPTDIR%%/venv python %%OPTDIR%%/src/manage.py document_consumer"
 
 	command="/usr/sbin/daemon"
 	command_args="-P ${pidfile} -o ${logfile} -u %%USER%% ${consumer}"

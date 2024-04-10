@@ -48,6 +48,7 @@ USE_RC_SUBR=	paperless
 
 SUB_FILES=	\
 		pkg-message \
+		paperless_manage \
 		setup_database.sh \
 		setup_nltk.sh \
 		setup_user.sh \
@@ -78,6 +79,7 @@ do-install:
 	${INSTALL_DATA} ${WRKSRC}/requirements.txt ${STAGEDIR}${OPTDIR}/requirements.txt
 	${INSTALL_DATA} ${WRKSRC}/paperless.conf ${STAGEDIR}${OPTDIR}/paperless.conf.sample
 	${INSTALL_DATA} ${WRKSRC}/gunicorn.conf.py ${STAGEDIR}${OPTDIR}/gunicorn.conf.py.sample
+	${INSTALL_SCRIPT} ${WRKDIR}/paperless_manage ${STAGEDIR}${PREFIX}/bin/
 	${INSTALL} -d -m 755 ${STAGEDIR}/${OPTDIR}/setup/
 	${INSTALL_SCRIPT} ${WRKDIR}/setup_*.sh ${STAGEDIR}/${OPTDIR}/setup/
 	${MKDIR} ${STAGEDIR}${OPTDIR}/consume

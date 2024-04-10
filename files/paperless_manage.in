@@ -1,0 +1,10 @@
+#!/bin/sh
+
+PARAMS="$@"
+
+su %%USER%% -c "
+. %%OPTDIR%%/venv/bin/activate
+cd %%OPTDIR%%/src
+python %%OPTDIR%%/src/manage.py ${PARAMS}
+deactivate
+"

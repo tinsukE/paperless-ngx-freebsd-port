@@ -3,8 +3,8 @@
 @postexec /usr/bin/su %%USER%% -c %%OPTDIR%%/setup/setup_nltk.sh
 @postexec /usr/bin/su %%USER%% -c %%OPTDIR%%/setup/setup_database.sh
 @preunexec /bin/rm -rf %%OPTDIR%%/venv %%OPTDIR%%/nltk
-@preunexec /usr/bin/find %%OPTDIR%%/src -type f -name "*.pyc" -delete
-@preunexec /usr/bin/find %%OPTDIR%%/src -type d -name "__pycache__" -delete
+@preunexec /usr/bin/find %%OPTDIR%% -type f -name "*.pyc" -delete
+@preunexec /usr/bin/find %%OPTDIR%% -type d -name "__pycache__" -delete
 @sample %%OPTDIR%%/paperless.conf.sample
 @sample %%OPTDIR%%/gunicorn.conf.py.sample
 @owner %%USER%%

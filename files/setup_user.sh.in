@@ -1,9 +1,0 @@
-#!/bin/sh
-
-echo "Creating admin user"
-
-. %%OPTDIR%%/venv/bin/activate
-cd %%OPTDIR%%/src
-python3 %%OPTDIR%%/src/manage.py createsuperuser
-
-deactivate

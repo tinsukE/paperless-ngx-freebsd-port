@@ -51,7 +51,6 @@ SUB_FILES=	\
 		paperless_manage \
 		setup_database.sh \
 		setup_nltk.sh \
-		setup_user.sh \
 		setup_venv.sh \
 
 SUB_LIST=	\

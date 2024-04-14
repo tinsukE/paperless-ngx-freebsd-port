@@ -13,8 +13,11 @@ sysrc paperless_enable=YES
 Disable specific sub-services by running:
 sysrc paperless_[webserver|scheduler|task_queue|consumer]_enable=NO
 
+Management:
+%%PREFIX%%/bin/paperless_manage is a shortcut to run %%OPTDIR%%/src/manage.py with the right user and environment
+
 Create a user by running:
-%%OPTDIR%%/setup/setup_user.sh
+%%PREFIX%%/bin/paperless_manage createsuperuser
 
 The configuration file can be found at:
 %%OPTDIR%%/paperless.conf

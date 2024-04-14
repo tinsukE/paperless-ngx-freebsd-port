@@ -13,7 +13,6 @@ bin/paperless_manage
 %%OPTDIR%%/requirements.txt
 %%OPTDIR%%/setup/setup_database.sh
 %%OPTDIR%%/setup/setup_nltk.sh
-%%OPTDIR%%/setup/setup_user.sh
 %%OPTDIR%%/setup/setup_venv.sh
 %%OPTDIR%%/src/documents/__init__.py
 %%OPTDIR%%/src/documents/admin.py

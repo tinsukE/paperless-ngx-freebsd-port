@@ -6,7 +6,7 @@ MASTER_SITES=	https://github.com/${PORTNAME}/${PORTNAME}/releases/download/v${DI
 PKGNAMEPREFIX=	${PYTHON_PKGNAMEPREFIX}
 
 MAINTAINER=	freebsd@mail.tinsuke.com
-COMMENT=	Document management system that transforms your physical documents into a searchable online archive so you can keep, well, less paper.
+COMMENT=	Document management system Web Service
 WWW=	https://docs.paperless-ngx.com/
 
 LICENSE=	GPLv3
@@ -28,7 +28,7 @@ RUN_DEPENDS=	\
 		${PYTHON_PKGNAMEPREFIX}numpy>0:math/py-numpy@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}scikit-learn>0:science/py-scikit-learn@${PY_FLAVOR} \
 		${PYTHON_PKGNAMEPREFIX}scipy>0:science/py-scipy@${PY_FLAVOR} \
-		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR} \
+		${PYTHON_PKGNAMEPREFIX}sqlite3>0:databases/py-sqlite3@${PY_FLAVOR}
 
 # python venv dependencies
 RUN_DEPENDS+=	\
@@ -40,7 +40,7 @@ RUN_DEPENDS+=	\
 		mysql80-client>0:databases/mysql80-client \
 		postgresql16-client>0:databases/postgresql16-client \
 		qpdf>0:print/qpdf \
-		rust>0:lang/rust \
+		rust>0:lang/rust
 
 USES=	python:3.8-3.9 tar:xz
 USE_PYTHON=	flavors
@@ -51,18 +51,18 @@ SUB_FILES=	\
 		paperless_manage \
 		setup_database.sh \
 		setup_nltk.sh \
-		setup_venv.sh \
+		setup_venv.sh
 
 SUB_LIST=	\
 		OPTDIR=${OPTDIR} \
 		PYTHON_CMD=${PYTHON_CMD} \
 		USER=${USERS} \
-		GROUP=${GROUPS} \
+		GROUP=${GROUPS}
 
 PLIST_SUB=	\
 	USER=${USERS} \
 	GROUP=${GROUPS} \
-	OPTDIR=${OPTDIR} \
+	OPTDIR=${OPTDIR}
 
 WRKSRC=	${WRKDIR}/${PORTNAME}
 OPTDIR=	/opt/paperless

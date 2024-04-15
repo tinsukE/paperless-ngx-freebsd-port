@@ -28,7 +28,7 @@ These are instructions for myself, but feel free to create a PR if I have been s
 # To-do
 - [X] Install files to `/opt/paperless`
 - [X] Use gunicorn instead of the development HTTP server
-- [ ] Update to v3
+- [X] Update to v2
 - [ ] Make web host and port configurable
 - [ ] Make consumption, data and media paths configurable
 - [ ] Make NLTK optional?

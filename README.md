@@ -1,6 +1,29 @@
 # A Paperless-ngx port for FreeBSD
 The port will install [paperless-ngx](https://paperless-ngx.com) on [FreeBSD](https://www.freebsd.org/).
 
+# Installation
+
+## Pre-built
+
+1. Download a pre-packaged **.pkg** file from https://github.com/tinsukE/paperless-ngx-freebsd-port/releases.
+2. Install it with `pkg install file`
+
+## From source
+
+Install directly from this repo's code:
+```
+git clone https://github.com/tinsukE/paperless-ngx-freebsd-port
+cd paperless-ngx-freebsd-port
+make install
+```
+
+# How to run
+
+1. Configure the service to start automatically: `sysrc paperless_enable=YES`
+1. Create a user: `/usr/local/bin/paperless_manage createsuperuser`
+1. Optional: configure Paperless-ngx by editing `/opt/paperless/paperless.conf`
+1. Start it: `service paperless start`
+
 # How to update to a new paperless-ngx release
 These are instructions for myself, but feel free to create a PR if I have been slacking in updating the port.
 

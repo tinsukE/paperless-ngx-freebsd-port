@@ -1,3 +1,14 @@
+> [!WARNING]  
+> There is now a port of Paperless-ngx for FreeBSD:
+> https://www.freshports.org/deskutils/py-paperless-ngx/
+> 
+> It supercedes this port, both in quality and functionality.
+> 
+> Although it is only available for FreeBSD 14 and 15, it is possible to get it installed and running on FreeBSD 13:
+> https://tinsuke.wordpress.com/2024/04/20/how-to-install-py-paperless-ngx-on-freebsd-13/
+>
+> Work on this port will stop.
+
 # A Paperless-ngx port for FreeBSD
 The port will install [paperless-ngx](https://paperless-ngx.com) on [FreeBSD](https://www.freebsd.org/).
 
